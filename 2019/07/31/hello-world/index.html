@@ -112,6 +112,8 @@
       <a data-url="http://yoursite.com/2019/07/31/hello-world/" data-id="cjyss7uch0000ootjaq1j1hnw" class="article-share-link">分享</a>
       
       
+        <a href="http://yoursite.com/2019/07/31/hello-world/#disqus_thread" class="article-comment-link">留言</a>
+      
       
     </footer>
   </div>
@@ -176,12 +178,23 @@
   <div class="comments" id="comments">
     
      
+    <section id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+      </section>
+      
        
       <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
     
        
       
       
+           <div id="gitment_comments"></div>
+    
   </div>
  
   
@@ -233,7 +246,7 @@
       主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
     </div>
      <div id="footer-right">
-      联系方式&nbsp;|&nbsp;youemail@outlook.com
+      联系方式&nbsp;|&nbsp;liucm.it@gmail.com
     </div>
   </div>
 </footer>
@@ -261,19 +274,19 @@ window.onload = function() {
 </script>
       
 
+<script>
+  var disqus_shortname = 'true';
   
-    <script>
-      var cloudTieConfig = {
-        url: document.location.href, 
-        sourceId: "",
-        productKey: "e2fb4051c49842688ce669e634bc983f",
-        target: "cloud-tie-wrapper"
-      };
-    </script>
-    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
-    
-
+  var disqus_url = 'http://yoursite.com/2019/07/31/hello-world/';
   
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
 
 
 
@@ -283,6 +296,22 @@ window.onload = function() {
 
 <!-- author:forvoid begin -->
 <!-- author:forvoid begin -->
+
+  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+  <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script> 
+  <script>
+  var gitment = new Gitment({
+    // id: '页面 ID', // 可选。默认为 location.href
+    owner: 'liucm-it',
+    repo: 'liucm-it.github.io',
+    oauth: {
+    client_id: '6b856d20a06ca6d83d16',
+    client_secret: '05cf3306d0d815d2501c61af0b14bc24c8f2fcab',
+    }
+  })
+  gitment.render(document.getElementById("gitment_comments"))
+</script>
+
 
 <!-- author:forvoid end -->
 
