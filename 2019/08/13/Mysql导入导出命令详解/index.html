@@ -3,19 +3,20 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>Hexo | Kermit&#39;s Blog</title>
+  <title>Mysql导入导出命令详解 | Kermit&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="MySQL导入、导出数据库命令导出数据和表结构 使用mysqldump的时候需要加上–default-character-set=utf8，防止出现乱码问题   12345mysqldump -u用户名 -p密码 --default-character-set=utf8  数据库名 &amp;gt; 数据库名.sqlmysqldump -uroot -p123456 --default-character">
+<meta name="keywords" content="Mysql">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/2019/07/31/hello-world/index.html">
+<meta property="og:title" content="Mysql导入导出命令详解">
+<meta property="og:url" content="http://yoursite.com/2019/08/13/Mysql导入导出命令详解/index.html">
 <meta property="og:site_name" content="Kermit&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="MySQL导入、导出数据库命令导出数据和表结构 使用mysqldump的时候需要加上–default-character-set=utf8，防止出现乱码问题   12345mysqldump -u用户名 -p密码 --default-character-set=utf8  数据库名 &amp;gt; 数据库名.sqlmysqldump -uroot -p123456 --default-character">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-13T12:25:20.366Z">
+<meta property="og:updated_time" content="2019-08-13T12:48:05.536Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Mysql导入导出命令详解">
+<meta name="twitter:description" content="MySQL导入、导出数据库命令导出数据和表结构 使用mysqldump的时候需要加上–default-character-set=utf8，防止出现乱码问题   12345mysqldump -u用户名 -p密码 --default-character-set=utf8  数据库名 &amp;gt; 数据库名.sqlmysqldump -uroot -p123456 --default-character">
   
     <link rel="alternate" href="/atom.xml" title="Kermit&#39;s Blog" type="application/atom+xml">
   
@@ -68,10 +69,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Mysql导入导出命令详解" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/07/31/hello-world/" class="article-date">
-  <time datetime="2019-07-31T15:49:11.579Z" itemprop="datePublished">2019-07-31</time>
+    <a href="/2019/08/13/Mysql导入导出命令详解/" class="article-date">
+  <time datetime="2019-08-13T12:10:29.000Z" itemprop="datePublished">2019-08-13</time>
 </a>
     
   </div>
@@ -82,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hexo
+      Mysql导入导出命令详解
     </h1>
   
 
@@ -92,29 +93,31 @@
       
         <!-- Table of Contents -->
         
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <h2 id="MySQL导入、导出数据库命令"><a href="#MySQL导入、导出数据库命令" class="headerlink" title="MySQL导入、导出数据库命令"></a>MySQL导入、导出数据库命令</h2><h3 id="导出数据和表结构"><a href="#导出数据和表结构" class="headerlink" title="导出数据和表结构"></a>导出数据和表结构</h3><blockquote>
+<p>使用mysqldump的时候需要加上–default-character-set=utf8，防止出现乱码问题 </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u用户名 -p密码 --default-character-set=utf8  数据库名 &gt; 数据库名.sql</span><br><span class="line"></span><br><span class="line">mysqldump -uroot -p123456 --default-character-set=utf8 test &gt; test.sql</span><br><span class="line"></span><br><span class="line">mysqldump -uroot -p test &gt; test.sql</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h3 id="只导出表结构"><a href="#只导出表结构" class="headerlink" title="只导出表结构"></a>只导出表结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u用户名 -p密码 -d 数据库名 &gt; 数据库名.sql</span><br><span class="line"></span><br><span class="line">mysqldump -uroot -p123456 -d test &gt; test.sql</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h3 id="导入数据库"><a href="#导入数据库" class="headerlink" title="导入数据库"></a>导入数据库</h3><h4 id="使用mysql命令导入"><a href="#使用mysql命令导入" class="headerlink" title="使用mysql命令导入"></a>使用mysql命令导入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql -u用户名 -p 数据库名 &lt; 数据库名.sql</span><br><span class="line"></span><br><span class="line">mysql -uroot -p123456 test &lt; test.sql</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h4 id="使用source命令导入"><a href="#使用source命令导入" class="headerlink" title="使用source命令导入"></a>使用source命令导入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">use test;                     # 使用已经创建的数据库</span><br><span class="line">source /home/test/test.sql    # 导入备份的sql文件</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<h3 id="导出远程数据库"><a href="#导出远程数据库" class="headerlink" title="导出远程数据库"></a>导出远程数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -h远程服务器ip地址 -P端口号  -u用户名 -p密码 --default-character-set=utf8 test &gt; /home/test/test.sql</span><br><span class="line"></span><br><span class="line">mysqldump -h192.168.22.11 –P3306 -uroot -ppassword --default-character-set=utf8 test &gt; /home/test/test.sql</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/31/hello-world/" data-id="cjz9tngws0001dstjdavw5lmq" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/08/13/Mysql导入导出命令详解/" data-id="cjz9tngwa0000dstj5poogxaj" class="article-share-link">分享</a>
       
       
-        <a href="http://yoursite.com/2019/07/31/hello-world/#disqus_thread" class="article-comment-link">留言</a>
+        <a href="http://yoursite.com/2019/08/13/Mysql导入导出命令详解/#disqus_thread" class="article-comment-link">留言</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mysql/">Mysql</a></li></ul>
+
     </footer>
   </div>
   
@@ -163,19 +166,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/08/13/Mysql导入导出命令详解/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          Mysql导入导出命令详解
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/07/31/test-blog/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/07/31/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">test blog</div>
+      <div class="article-nav-title">Hexo</div>
     </a>
   
 </nav>
@@ -222,7 +216,7 @@
       
         <strong class="toc-title">文章目录</strong>
         <div class="toc-widget-list">
-              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#MySQL导入、导出数据库命令"><span class="toc-number">1.</span> <span class="toc-text">MySQL导入、导出数据库命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#导出数据和表结构"><span class="toc-number">1.1.</span> <span class="toc-text">导出数据和表结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#只导出表结构"><span class="toc-number">1.2.</span> <span class="toc-text">只导出表结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导入数据库"><span class="toc-number">1.3.</span> <span class="toc-text">导入数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用mysql命令导入"><span class="toc-number">1.3.1.</span> <span class="toc-text">使用mysql命令导入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用source命令导入"><span class="toc-number">1.3.2.</span> <span class="toc-text">使用source命令导入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导出远程数据库"><span class="toc-number">1.4.</span> <span class="toc-text">导出远程数据库</span></a></li></ol></li></ol>
           </div>
       </div>
     </div>
@@ -286,7 +280,7 @@ window.onload = function() {
 <script>
   var disqus_shortname = 'true';
   
-  var disqus_url = 'http://yoursite.com/2019/07/31/hello-world/';
+  var disqus_url = 'http://yoursite.com/2019/08/13/Mysql导入导出命令详解/';
   
   (function(){
     var dsq = document.createElement('script');
