@@ -90,8 +90,8 @@
       
         <!-- Table of Contents -->
         
-        <h2 id="MySQL导入、导出数据库命令"><a href="#MySQL导入、导出数据库命令" class="headerlink" title="MySQL导入、导出数据库命令"></a>MySQL导入、导出数据库命令</h2><h3 id="导出数据和表结构"><a href="#导出数据和表结构" class="headerlink" title="导出数据和表结构"></a>导出数据和表结构</h3><blockquote>
-<p>使用mysqldump的时候需要加上–default-character-set=utf8，防止出现乱码问题 </p>
+        <h3 id="导出数据和表结构"><a href="#导出数据和表结构" class="headerlink" title="导出数据和表结构"></a>导出数据和表结构</h3><blockquote>
+<p>使用mysqldump可以加上–default-character-set=utf8 </p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u用户名 -p密码 --default-character-set=utf8  数据库名 &gt; 数据库名.sql</span><br><span class="line"></span><br><span class="line">mysqldump -uroot -p123456 --default-character-set=utf8 test &gt; test.sql</span><br><span class="line"></span><br><span class="line">mysqldump -uroot -p test &gt; test.sql</span><br></pre></td></tr></table></figure>
 
@@ -109,8 +109,6 @@
     <footer class="article-footer">
       <a data-url="http://yoursite.com/2019/08/13/Mysql导入导出命令详解/" data-id="cjz9tngwa0000dstj5poogxaj" class="article-share-link">分享</a>
       
-      
-        <a href="http://yoursite.com/2019/08/13/Mysql导入导出命令详解/#disqus_thread" class="article-comment-link">留言</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mysql/">Mysql</a></li></ul>
@@ -137,7 +135,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/31/hello-world/">Hexo</a>
+      <a class="article-title" href="/2019/07/31/hello-world/">About Hexo</a>
     </h1>
   
 
@@ -166,8 +164,6 @@
     <footer class="article-footer">
       <a data-url="http://yoursite.com/2019/07/31/hello-world/" data-id="cjz9tngws0001dstjdavw5lmq" class="article-share-link">分享</a>
       
-      
-        <a href="http://yoursite.com/2019/07/31/hello-world/#disqus_thread" class="article-comment-link">留言</a>
       
       
     </footer>
@@ -202,17 +198,12 @@
       
         <!-- Table of Contents -->
         
-        <h2 id="为什么要搭建个人博客？"><a href="#为什么要搭建个人博客？" class="headerlink" title="为什么要搭建个人博客？"></a>为什么要搭建个人博客？</h2><h3 id="Title-Three"><a href="#Title-Three" class="headerlink" title="Title Three"></a>Title Three</h3><pre><code class="bash"><span class="keyword">function</span> <span class="function"><span class="title">foo</span></span>() {
-    console.log(<span class="string">'This is markdown code'</span>)
-}</code></pre>
-
+        <h2 id="为什么要搭建个人博客？"><a href="#为什么要搭建个人博客？" class="headerlink" title="为什么要搭建个人博客？"></a>为什么要搭建个人博客？</h2><h3 id="Title-Three"><a href="#Title-Three" class="headerlink" title="Title Three"></a>Title Three</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'This is markdown code'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
       <a data-url="http://yoursite.com/2019/07/31/test-blog/" data-id="cjz9tngx40003dstjhzp6e0zu" class="article-share-link">分享</a>
       
-      
-        <a href="http://yoursite.com/2019/07/31/test-blog/#disqus_thread" class="article-comment-link">留言</a>
       
       
     </footer>
@@ -272,7 +263,7 @@
           </li>
         
           <li>
-            <a href="/2019/07/31/hello-world/">Hexo</a>
+            <a href="/2019/07/31/hello-world/">About Hexo</a>
           </li>
         
           <li>
@@ -352,17 +343,19 @@ window.onload = function() {
 </script>
       
 
-<script>
-  var disqus_shortname = 'true';
   
-  (function(){
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-  })();
-</script>
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "e2fb4051c49842688ce669e634bc983f",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+    
+
+  
 
 
 
@@ -372,22 +365,6 @@ window.onload = function() {
 
 <!-- author:forvoid begin -->
 <!-- author:forvoid begin -->
-
-  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-  <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script> 
-  <script>
-  var gitment = new Gitment({
-    // id: '页面 ID', // 可选。默认为 location.href
-    owner: 'liucm-it',
-    repo: 'liucm-it.github.io',
-    oauth: {
-    client_id: '6b856d20a06ca6d83d16',
-    client_secret: '05cf3306d0d815d2501c61af0b14bc24c8f2fcab',
-    }
-  })
-  gitment.render(document.getElementById("gitment_comments"))
-</script>
-
 
 <!-- author:forvoid end -->
 
