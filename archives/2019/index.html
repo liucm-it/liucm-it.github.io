@@ -253,6 +253,22 @@ window.onload = function() {
 <!-- author:forvoid begin -->
 <!-- author:forvoid begin -->
 
+  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+  <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script> 
+  <script>
+  var gitment = new Gitment({
+    // id: '页面 ID', // 可选。默认为 location.href
+    owner: 'liucm-it',
+    repo: 'liucm-it.github.io',
+    oauth: {
+    client_id: '6b856d20a06ca6d83d16',
+    client_secret: '05cf3306d0d815d2501c61af0b14bc24c8f2fcab',
+    }
+  })
+  gitment.render(document.getElementById("gitment_comments"))
+</script>
+
+
 <!-- author:forvoid end -->
 
 <!-- author:forvoid end -->
