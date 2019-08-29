@@ -427,7 +427,7 @@ url: http://blog.liuchaoming.cn
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.liuchaoming.cn/404.html" data-id="cjzwqu5xo000090tjbznyowuy" class="article-share-link">分享</a>
+      <a data-url="http://blog.liuchaoming.cn/404.html" data-id="cjzwtooju0000yktjm700nkew" class="article-share-link">分享</a>
       
       
       
@@ -485,13 +485,11 @@ url: http://blog.liuchaoming.cn
     
      
        
-      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-    
        
-      
-      
-           <div id="gitment_comments"></div>
+            <div id="SOHUCS" sid="404.html"> </div>
     
+      
+      
   </div>
  
   
@@ -581,73 +579,59 @@ window.onload = function() {
 </script>
       
 
-  
-    <script>
-      var cloudTieConfig = {
-        url: document.location.href, 
-        sourceId: "",
-        productKey: "e2fb4051c49842688ce669e634bc983f",
-        target: "cloud-tie-wrapper"
-      };
-    </script>
-    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
-    
 
-  
-
-
-
-
-
-
-
-<!-- author:forvoid begin -->
-<!-- author:forvoid begin -->
-
-  <!-- <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-  <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>  -->
-  <link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
-  <script src="https://jjeejj.github.io/js/gitment.js"></script>
-  <script>
-  var gitment = new Gitment({
-    // id: '页面 ID', // 可选。默认为 location.href
-    owner: 'liucm-it',
-    repo: 'liucm-it.github.io',
-    oauth: {
-    client_id: '6b856d20a06ca6d83d16',
-    client_secret: '05cf3306d0d815d2501c61af0b14bc24c8f2fcab',
-    }
-  })
-  gitment.render(document.getElementById("gitment_comments"))
+<!--PC和WAP自适应版-->
+<script type="text/javascript ">
+    (function () {
+        var appid = 'cyupqjrax';
+        var conf = 'prod_fd5cd7e638730758d54c97057be0c026';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>');
+        } else {
+            var loadJs = function (d, a) {
+                var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+                var b = document.createElement("script");
+                b.setAttribute("type", "text/javascript");
+                b.setAttribute("charset", "UTF-8");
+                b.setAttribute("src", d);
+                if (typeof a === "function") {
+                    if (window.attachEvent) {
+                        b.onreadystatechange = function () {
+                            var e = b.readyState;
+                            if (e === "loaded" || e === "complete") {
+                                b.onreadystatechange = null;
+                                a()
+                            }
+                        }
+                    } else {
+                        b.onload = a
+                    }
+                }
+                c.appendChild(b)
+            };
+            loadJs("http://changyan.sohu.com/upload/changyan.js", function () {
+                window.changyan.api.config({
+                    appid: appid,
+                    conf: conf
+                })
+            });
+        }
+    })();
 </script>
 
 
-<!-- author:forvoid end -->
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
 
 <!-- author:forvoid end -->
 
+<!-- author:forvoid end -->
 
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      })
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      })
-    </script>
-    <script type="text/javascript" src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  
 
 
  <script src="/js/is.js"></script>
