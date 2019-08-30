@@ -5,18 +5,18 @@
   
   <title>Mysql数据库设计规范 | Kermit&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关于Mysql设计的一些总结和规范，优秀的设计规范给后期维护带来极大的方便">
+  <meta name="description" content="一般使用Mysql数据比较多，但是有点小伙伴很少考虑Mysql设计上的细节问题，像SQL语句的规范、索引上的规范等等，本文经过整理后得到一些常用的Mysql数据库设计规范。">
 <meta name="keywords" content="Mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mysql数据库设计规范">
 <meta property="og:url" content="http://blog.liuchaoming.cn/2019/07/31/Mysql数据库设计规范/index.html">
 <meta property="og:site_name" content="Kermit&#39;s Blog">
-<meta property="og:description" content="关于Mysql设计的一些总结和规范，优秀的设计规范给后期维护带来极大的方便">
+<meta property="og:description" content="一般使用Mysql数据比较多，但是有点小伙伴很少考虑Mysql设计上的细节问题，像SQL语句的规范、索引上的规范等等，本文经过整理后得到一些常用的Mysql数据库设计规范。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-30T13:20:15.495Z">
+<meta property="og:updated_time" content="2019-08-30T13:38:09.495Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mysql数据库设计规范">
-<meta name="twitter:description" content="关于Mysql设计的一些总结和规范，优秀的设计规范给后期维护带来极大的方便">
+<meta name="twitter:description" content="一般使用Mysql数据比较多，但是有点小伙伴很少考虑Mysql设计上的细节问题，像SQL语句的规范、索引上的规范等等，本文经过整理后得到一些常用的Mysql数据库设计规范。">
   
     <link rel="alternate" href="/atom.xml" title="Kermit&#39;s Blog" type="application/atom+xml">
   
@@ -93,7 +93,7 @@
       
         <!-- Table of Contents -->
         
-        <p>关于Mysql设计的一些总结和规范，优秀的设计规范给后期维护带来极大的方便</p>
+        <p>一般使用Mysql数据比较多，但是有点小伙伴很少考虑Mysql设计上的细节问题，像SQL语句的规范、索引上的规范等等，本文经过整理后得到一些常用的Mysql数据库设计规范。</p>
 <a id="more"></a>
 
 <h3 id="Mysql命令规范"><a href="#Mysql命令规范" class="headerlink" title="Mysql命令规范"></a>Mysql命令规范</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- 所有数据库表命名都用小写字母、并用下换线分割</span><br><span class="line">- 所有数据库表名尽量不要使用Mysql关键字命名、能看到名称大概了解表是做什么的</span><br><span class="line">- 临时表以tmp_为前缀、日期后缀区分，备份表以bak_为前缀、日期后缀</span><br><span class="line">- 相同的数据字段，在所有表中的列明和类型尽量保持一致</span><br></pre></td></tr></table></figure>
@@ -162,15 +162,20 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/07/31/Hexo/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/08/13/Mysql导入导出命令详解/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          About Hexo
+          Mysql导入导出命令详解
         
       </div>
     </a>
   
+  
+    <a href="/2019/07/31/Blog/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">About Blog</div>
+    </a>
   
 </nav>
 
