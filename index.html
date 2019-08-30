@@ -90,7 +90,9 @@
       
         <!-- Table of Contents -->
         
-        <h3 id="导出数据和表结构"><a href="#导出数据和表结构" class="headerlink" title="导出数据和表结构"></a>导出数据和表结构</h3><blockquote>
+        <a id="more"></a>
+
+<h3 id="导出数据和表结构"><a href="#导出数据和表结构" class="headerlink" title="导出数据和表结构"></a>导出数据和表结构</h3><blockquote>
 <p>使用mysqldump可以加上–default-character-set=utf8 </p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u用户名 -p密码 --default-character-set=utf8  数据库名 &gt; 数据库名.sql</span><br><span class="line"></span><br><span class="line">mysqldump -uroot -p123456 --default-character-set=utf8 test &gt; test.sql</span><br><span class="line"></span><br><span class="line">mysqldump -uroot -p test &gt; test.sql</span><br></pre></td></tr></table></figure>
@@ -188,7 +190,9 @@
       
         <!-- Table of Contents -->
         
-        <h3 id="Mysql命令规范"><a href="#Mysql命令规范" class="headerlink" title="Mysql命令规范"></a>Mysql命令规范</h3><ul>
+        <a id="more"></a>
+
+<h3 id="Mysql命令规范"><a href="#Mysql命令规范" class="headerlink" title="Mysql命令规范"></a>Mysql命令规范</h3><ul>
 <li>所有数据库表命名都用小写字母、并用下换线分割</li>
 <li>所有数据库表名尽量不要使用Mysql关键字命名、能看到名称大概了解表是做什么的</li>
 <li>临时表以tmp_为前缀、日期后缀区分，备份表以bak_为前缀、日期后缀</li>
