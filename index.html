@@ -88,24 +88,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <!-- Table of Contents -->
+        <p>Mysql导入导出数据库经常使用，记录一下以后方便查找</p>
         
-        <a id="more"></a>
-
-<h3 id="导出数据和表结构"><a href="#导出数据和表结构" class="headerlink" title="导出数据和表结构"></a>导出数据和表结构</h3><blockquote>
-<p>使用mysqldump可以加上–default-character-set=utf8 </p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u用户名 -p密码 --default-character-set=utf8  数据库名 &gt; 数据库名.sql</span><br><span class="line"></span><br><span class="line">mysqldump -uroot -p123456 --default-character-set=utf8 test &gt; test.sql</span><br><span class="line"></span><br><span class="line">mysqldump -uroot -p test &gt; test.sql</span><br></pre></td></tr></table></figure>
-
-<h3 id="只导出表结构"><a href="#只导出表结构" class="headerlink" title="只导出表结构"></a>只导出表结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u用户名 -p密码 -d 数据库名 &gt; 数据库名.sql</span><br><span class="line"></span><br><span class="line">mysqldump -uroot -p123456 -d test &gt; test.sql</span><br></pre></td></tr></table></figure>
-
-<h3 id="导入数据库"><a href="#导入数据库" class="headerlink" title="导入数据库"></a>导入数据库</h3><h4 id="使用mysql命令导入"><a href="#使用mysql命令导入" class="headerlink" title="使用mysql命令导入"></a>使用mysql命令导入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql -u用户名 -p 数据库名 &lt; 数据库名.sql</span><br><span class="line"></span><br><span class="line">mysql -uroot -p123456 test &lt; test.sql</span><br></pre></td></tr></table></figure>
-
-<h4 id="使用source命令导入"><a href="#使用source命令导入" class="headerlink" title="使用source命令导入"></a>使用source命令导入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">use test;                     # 使用已经创建的数据库</span><br><span class="line">source /home/test/test.sql    # 导入备份的sql文件</span><br></pre></td></tr></table></figure>
-
-<h3 id="导出远程数据库"><a href="#导出远程数据库" class="headerlink" title="导出远程数据库"></a>导出远程数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -h远程服务器ip地址 -P端口号  -u用户名 -p密码 --default-character-set=utf8 test &gt; /home/test/test.sql</span><br><span class="line"></span><br><span class="line">mysqldump -h192.168.22.11 –P3306 -uroot -ppassword --default-character-set=utf8 test &gt; /home/test/test.sql</span><br></pre></td></tr></table></figure>
-
-
+          <p class="article-more-link">
+            <a href="/2019/08/13/Mysql导入导出命令详解/#more">继续阅读全文 »</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
@@ -188,103 +176,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <!-- Table of Contents -->
+        <p>关于Mysql设计的一些总结和规范，优秀的设计规范给后期维护带来极大的方便</p>
         
-        <a id="more"></a>
-
-<h3 id="Mysql命令规范"><a href="#Mysql命令规范" class="headerlink" title="Mysql命令规范"></a>Mysql命令规范</h3><ul>
-<li>所有数据库表命名都用小写字母、并用下换线分割</li>
-<li>所有数据库表名尽量不要使用Mysql关键字命名、能看到名称大概了解表是做什么的</li>
-<li>临时表以tmp_为前缀、日期后缀区分，备份表以bak_为前缀、日期后缀</li>
-<li>相同的数据字段，在所有表中的列明和类型尽量保持一致</li>
-</ul>
-<h3 id="基本设计规范"><a href="#基本设计规范" class="headerlink" title="基本设计规范"></a>基本设计规范</h3><ul>
-<li>大部分情况尽量使用InnoDB引擎，InnoDB支持事务、行级锁、性能更好</li>
-<li>数据库尽量使用utf8mb4的字符集，兼容性好，避免乱码和索引创建失败的问题</li>
-<li>表和字段都尽量加上注释，方便以后维护</li>
-<li>尽量不要使用存储过程、视图、触发器、Event。可以减少数据库资源的占用、将计算转移到服务层</li>
-<li>单表的数据量尽量控制在500万以内，数据量过大影响Mysql性能和维护，更多的数据可以对数据库进行分库分表拆分，控制单表的数据量</li>
-<li>尽量不要使用Mysql的分区功能，分区是物理上多个文件，逻辑上一个文件，查询效率很低。可以使用中间件mycat、sharding-jdbc等进行物理分区</li>
-<li>尽量减少表的宽度、数据冷热数据进行分离、保证每个表都有主键<ul>
-<li>Mysql列数限制在为4096列，每一行数据不超过65535字节；宽度越大、加载的内存就越大，IO消耗也就越大</li>
-<li>经常用的数据放在一起，不常用的数据分离出去，可以极大提高效率</li>
-<li>主键可以更好的利用索引，提高查询效率</li>
-</ul>
-</li>
-<li>表中尽量不用外键，通过程序来维护，外键导致表与表之间耦合，涉及相关的表，十分影响性能且容易造成死锁</li>
-</ul>
-<h3 id="字段涉及规范"><a href="#字段涉及规范" class="headerlink" title="字段涉及规范"></a>字段涉及规范</h3><ul>
-<li>优先选择符合业务最小的存储类型，节省数据空间减少IO消耗</li>
-<li>字段定义使用Not Null，可以提供一个默认值<ul>
-<li>null值索引很难优化，null值更占用空间，需要额外空间标识</li>
-<li>null值操作只能采用is null或is not null</li>
-<li>不能采用=、in、&lt;、&lt;&gt;、not in、！=操作符，不方便操作，where name != ‘abc’, 不会查询出name为null的数据</li>
-</ul>
-</li>
-<li>尽量不使用Text、Blob类型<ul>
-<li>Mysql使用Text、Blob类型就不使用内存临时表而使用磁盘临时空间、性能差浪费磁盘和内存空间。</li>
-<li>降低数据库内存命中率</li>
-<li>可以单独建立扩展表使用</li>
-</ul>
-</li>
-<li>尽量不使用Enum、用Tinyint<ul>
-<li>修改Enum值时，需要通过alter修改表</li>
-<li>order by的操作效率低</li>
-</ul>
-</li>
-<li>尽量不要使用小数，尤其涉及金钱等精度要求较高的类型<ul>
-<li>最好使用整数，小数存储有精度的误差，导致金额对不上</li>
-</ul>
-</li>
-<li>时间尽量使用Timestamp或者Datetime类型存储时间，不要使用String类型<ul>
-<li>使用String无法使用日期函数进行比较比较</li>
-<li>用String会占用更多的空间</li>
-</ul>
-</li>
-</ul>
-<h3 id="索引设计规范"><a href="#索引设计规范" class="headerlink" title="索引设计规范"></a>索引设计规范</h3><ul>
-<li>表的索引不要太多，尽量5个以下，索引增加查询效率同时也会降低插入和更新的效率<ul>
-<li>索引太多会影响Mysql优化器，优化器消耗时间增加，反而降低查询到的性能</li>
-</ul>
-</li>
-<li>更新频繁的列、或者列值区分度不高的列(如：性别，只有男、女、未知)不要加索引</li>
-<li>联合索引，把区分度高的放在左侧，尽量遵循最左索引原则<ul>
-<li>区分度高的列放在最左侧</li>
-<li>查询频繁的列放在最左侧</li>
-<li>字段长度小的放在最左侧</li>
-</ul>
-</li>
-</ul>
-<h3 id="SQL语句规范"><a href="#SQL语句规范" class="headerlink" title="SQL语句规范"></a>SQL语句规范</h3><ul>
-<li>尽量不要使属性隐式转换，隐式转换使索引失效<ul>
-<li>SELECT name FROM project WHERE id = <code>&#39;1000&#39;</code>; id为整型，用<code>1000</code>代替</li>
-</ul>
-</li>
-<li>程序中使用预编译语句操作数据库，减少SQL编译时间同时防止SQL注入</li>
-<li>insert语句尽量包含字段<ul>
-<li>如：INSERT INTO test values(‘1’, ‘abc’);应该INSERT INTO test(id, name) values(‘1’, ‘abc’)</li>
-</ul>
-</li>
-<li>尽量不要使用%开头的模糊查询<ul>
-<li>not、!=、&lt;&gt;、not in、not like以及%开头等，会是查询不走索引而全变扫描</li>
-</ul>
-</li>
-<li>联合索引只能有一列进行范围查询<ul>
-<li>a1,a2,a3联合索引，a1范围查询，a2，a3列不会走索引，可以把a1放在最后</li>
-</ul>
-</li>
-<li>Where语句后的字段尽量不要使用函数或表达式，否则不会走索引<ul>
-<li>SELECT id FROM t WHERE num/2=100，这将导致引擎放弃使用索引而进行全表扫描，可改为：SELECT id FROM t WHERE num=100*2</li>
-<li>SELECT id FROM t WHERE substring(name,1,3)=’abc’–name以abc开头的id，应改为:SELECT id FROM t WHERE name LIKE ‘abc%’</li>
-<li>SELECT id FROM t WHERE datediff(day,createdate,’2005-11-30’)=0–’2015-11-30’生成的id，应改为:SELECT id FROM t WHERE createdate&gt;=’2015-11-30’ AND createdate&lt;’2015-12-1’</li>
-</ul>
-</li>
-<li>大表不要使用子查询，不使用JOIN查询</li>
-<li>避免JOIN关联太多表</li>
-<li>OR条件可以换成IN查询</li>
-<li>尽量减少与数据库交互次数</li>
-</ul>
-
+          <p class="article-more-link">
+            <a href="/2019/07/31/Mysql数据库设计规范/#more">继续阅读全文 »</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
@@ -396,7 +293,7 @@
   <div class="widget-wrap">
     <h3 class="follow-title ">WeChat</h3>
     <div class="widget wechat-widget">
-        <img src="https://sm.ms/image/v6nFU5uy7IYG3D8" alt="扫码关注" width="250"/>
+        <img src="https://i.loli.net/2019/08/30/v6nFU5uy7IYG3D8.jpg" alt="扫码关注" width="250"/>
     </div>
   </div>
 

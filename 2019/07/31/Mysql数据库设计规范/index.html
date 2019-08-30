@@ -5,18 +5,18 @@
   
   <title>Mysql数据库设计规范 | Kermit&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Mysql命令规范 所有数据库表命名都用小写字母、并用下换线分割 所有数据库表名尽量不要使用Mysql关键字命名、能看到名称大概了解表是做什么的 临时表以tmp_为前缀、日期后缀区分，备份表以bak_为前缀、日期后缀 相同的数据字段，在所有表中的列明和类型尽量保持一致  基本设计规范 大部分情况尽量使用InnoDB引擎，InnoDB支持事务、行级锁、性能更好 数据库尽量使用utf8mb4的字符">
+  <meta name="description" content="关于Mysql设计的一些总结和规范，优秀的设计规范给后期维护带来极大的方便">
 <meta name="keywords" content="Mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mysql数据库设计规范">
 <meta property="og:url" content="http://blog.liuchaoming.cn/2019/07/31/Mysql数据库设计规范/index.html">
 <meta property="og:site_name" content="Kermit&#39;s Blog">
-<meta property="og:description" content="Mysql命令规范 所有数据库表命名都用小写字母、并用下换线分割 所有数据库表名尽量不要使用Mysql关键字命名、能看到名称大概了解表是做什么的 临时表以tmp_为前缀、日期后缀区分，备份表以bak_为前缀、日期后缀 相同的数据字段，在所有表中的列明和类型尽量保持一致  基本设计规范 大部分情况尽量使用InnoDB引擎，InnoDB支持事务、行级锁、性能更好 数据库尽量使用utf8mb4的字符">
+<meta property="og:description" content="关于Mysql设计的一些总结和规范，优秀的设计规范给后期维护带来极大的方便">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-30T13:03:04.051Z">
+<meta property="og:updated_time" content="2019-08-30T13:14:58.850Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mysql数据库设计规范">
-<meta name="twitter:description" content="Mysql命令规范 所有数据库表命名都用小写字母、并用下换线分割 所有数据库表名尽量不要使用Mysql关键字命名、能看到名称大概了解表是做什么的 临时表以tmp_为前缀、日期后缀区分，备份表以bak_为前缀、日期后缀 相同的数据字段，在所有表中的列明和类型尽量保持一致  基本设计规范 大部分情况尽量使用InnoDB引擎，InnoDB支持事务、行级锁、性能更好 数据库尽量使用utf8mb4的字符">
+<meta name="twitter:description" content="关于Mysql设计的一些总结和规范，优秀的设计规范给后期维护带来极大的方便">
   
     <link rel="alternate" href="/atom.xml" title="Kermit&#39;s Blog" type="application/atom+xml">
   
@@ -93,7 +93,8 @@
       
         <!-- Table of Contents -->
         
-        <a id="more"></a>
+        <p>关于Mysql设计的一些总结和规范，优秀的设计规范给后期维护带来极大的方便</p>
+<a id="more"></a>
 
 <h3 id="Mysql命令规范"><a href="#Mysql命令规范" class="headerlink" title="Mysql命令规范"></a>Mysql命令规范</h3><ul>
 <li>所有数据库表命名都用小写字母、并用下换线分割</li>
