@@ -3,20 +3,20 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>Docker安装后报Cannot connect to the docker daemon at ... | Kermit&#39;s Blog</title>
+  <title>关于java的垃圾收集器 | Kermit&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Docker安装后报错：Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?">
-<meta name="keywords" content="Docker">
+  <meta name="description" content="虽然对各个收集器进行比较，但并非要挑选出一个最好的收集器。因为知道现在为止还没有所谓最好的垃圾收集器出现，也更加没有万能的垃圾收集器，而是根据具体应用场景选择适合自己的垃圾收集器。如果有一种任何场景下都适用的完美收集器存在，那么HotSpot虚拟机就不会实现那么多不同的垃圾收集器了">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker安装后报Cannot connect to the docker daemon at ...">
-<meta property="og:url" content="http://blog.liuchaoming.cn/2019/07/31/Docker使用报错/index.html">
+<meta property="og:title" content="关于java的垃圾收集器">
+<meta property="og:url" content="http://blog.liuchaoming.cn/2019/09/04/关于java的垃圾收集器/index.html">
 <meta property="og:site_name" content="Kermit&#39;s Blog">
-<meta property="og:description" content="Docker安装后报错：Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?">
+<meta property="og:description" content="虽然对各个收集器进行比较，但并非要挑选出一个最好的收集器。因为知道现在为止还没有所谓最好的垃圾收集器出现，也更加没有万能的垃圾收集器，而是根据具体应用场景选择适合自己的垃圾收集器。如果有一种任何场景下都适用的完美收集器存在，那么HotSpot虚拟机就不会实现那么多不同的垃圾收集器了">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-13T04:49:54.736Z">
+<meta property="og:updated_time" content="2019-09-13T04:59:30.405Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker安装后报Cannot connect to the docker daemon at ...">
-<meta name="twitter:description" content="Docker安装后报错：Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?">
+<meta name="twitter:title" content="关于java的垃圾收集器">
+<meta name="twitter:description" content="虽然对各个收集器进行比较，但并非要挑选出一个最好的收集器。因为知道现在为止还没有所谓最好的垃圾收集器出现，也更加没有万能的垃圾收集器，而是根据具体应用场景选择适合自己的垃圾收集器。如果有一种任何场景下都适用的完美收集器存在，那么HotSpot虚拟机就不会实现那么多不同的垃圾收集器了">
   
     <link rel="alternate" href="/atom.xml" title="Kermit&#39;s Blog" type="application/atom+xml">
   
@@ -73,10 +73,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Docker使用报错" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-关于java的垃圾收集器" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/07/31/Docker使用报错/" class="article-date">
-  <time datetime="2019-07-31T15:03:34.000Z" itemprop="datePublished">2019-07-31</time>
+    <a href="/2019/09/04/关于java的垃圾收集器/" class="article-date">
+  <time datetime="2019-09-04T13:00:20.000Z" itemprop="datePublished">2019-09-04</time>
 </a>
     
   </div>
@@ -87,7 +87,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Docker安装后报Cannot connect to the docker daemon at ...
+      关于java的垃圾收集器
     </h1>
   
 
@@ -97,20 +97,21 @@
       
         <!-- Table of Contents -->
         
-        <p>Docker安装后报错：Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?</p>
+        <p>虽然对各个收集器进行比较，但并非要挑选出一个最好的收集器。因为知道现在为止还没有所谓最好的垃圾收集器出现，也更加没有万能的垃圾收集器，而是根据具体应用场景选择适合自己的垃圾收集器。如果有一种任何场景下都适用的完美收集器存在，那么HotSpot虚拟机就不会实现那么多不同的垃圾收集器了</p>
 <a id="more"></a>
 
-<h3 id="解决方式执行以下命令"><a href="#解决方式执行以下命令" class="headerlink" title="解决方式执行以下命令"></a>解决方式执行以下命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">sudo service docker restart</span><br><span class="line">sudo service docker status (should see active (running))</span><br></pre></td></tr></table></figure>
-
+<h3 id="Serial收集器"><a href="#Serial收集器" class="headerlink" title="Serial收集器"></a>Serial收集器</h3><blockquote>
+<p>Serial（串行）收集器收集器是最基本、历史最悠久的垃圾收集器了。看名字就知道这个收集器是一个单线程收集器了。它的 “单线程” 的意义不仅仅意味着它只会使用一条垃圾收集线程去完成垃圾收集工作，更重要的是它在进行垃圾收集工作的时候必须暂停其他所有的工作线程（ “Stop The World” ），直到它收集结束。</p>
+</blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.liuchaoming.cn/2019/07/31/Docker使用报错/" data-id="ck0mjujqd0002rctj5cdw8kpg" class="article-share-link">分享</a>
+      <a data-url="http://blog.liuchaoming.cn/2019/09/04/关于java的垃圾收集器/" data-id="ck0mjujqn000frctjtd29dmh7" class="article-share-link">分享</a>
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/">Docker</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
 
     </footer>
   </div>
@@ -160,19 +161,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/08/13/Mysql导入导出命令详解/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/09/05/git-push到GitHub的时候遇到的问题/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          Mysql导入导出命令详解
+          git push到GitHub的时候遇到! [rejected] master -&gt; master (non-fast-forward)的问题
         
       </div>
     </a>
   
   
-    <a href="/2019/07/31/Mysql数据库设计规范/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/08/30/Java8的Lambda表达式-上/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">Mysql数据库设计规范</div>
+      <div class="article-nav-title">Java8的Lambda表达式</div>
     </a>
   
 </nav>
@@ -186,7 +187,7 @@
      
        
        
-            <div id="SOHUCS" sid="2019/07/31/Docker使用报错/"> </div>
+            <div id="SOHUCS" sid="2019/09/04/关于java的垃圾收集器/"> </div>
     
       
       
@@ -208,7 +209,7 @@
       
         <strong class="toc-title">文章目录</strong>
         <div class="toc-widget-list">
-              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方式执行以下命令"><span class="toc-number">1.</span> <span class="toc-text">解决方式执行以下命令</span></a></li></ol>
+              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Serial收集器"><span class="toc-number">1.</span> <span class="toc-text">Serial收集器</span></a></li></ol>
           </div>
       </div>
     </div>

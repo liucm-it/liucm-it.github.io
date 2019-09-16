@@ -71,6 +71,329 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Liunx终端关闭后shell脚本继续运行" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/13/Liunx终端关闭后shell脚本继续运行/" class="article-date">
+  <time datetime="2019-09-12T22:22:11.737Z" itemprop="datePublished">2019-09-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/13/Liunx终端关闭后shell脚本继续运行/">Liunx终端关闭后shell脚本继续运行</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一直执行的shell脚本，在终端关闭后就会退出，怎么解决？</p>
+        
+          <p class="article-more-link">
+            <a href="/2019/09/13/Liunx终端关闭后shell脚本继续运行/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.liuchaoming.cn/2019/09/13/Liunx终端关闭后shell脚本继续运行/" data-id="ck0mjujqh0005rctj8p196ahf" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Liunx/">Liunx</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-Docker拉取镜像出错" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/12/Docker拉取镜像出错/" class="article-date">
+  <time datetime="2019-09-12T13:54:41.000Z" itemprop="datePublished">2019-09-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/12/Docker拉取镜像出错/">Docker拉取镜像出错</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>docker pull镜像的时候出错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR: Get https://registry-1.docker.io/v2/: dial tcp: lookup registry-1.docker.io on 8.8.8.8:53: too many redirects</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2019/09/12/Docker拉取镜像出错/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.liuchaoming.cn/2019/09/12/Docker拉取镜像出错/" data-id="ck0mjujqh0006rctj76hop3ci" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/">Docker</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-Liunx记录登录用户和操作记录" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/11/Liunx记录登录用户和操作记录/" class="article-date">
+  <time datetime="2019-09-11T15:15:37.000Z" itemprop="datePublished">2019-09-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/11/Liunx记录登录用户和操作记录/">Liunx记录登录用户和操作记录</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>通过在/etc/profile里面加入以下代码就可以实现记录登陆后的IP地址和某用户名所操作的历史记录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">PS1=<span class="string">"`whoami`@`hostname`:"</span><span class="string">'[$PWD]'</span></span><br><span class="line"><span class="built_in">history</span></span><br><span class="line">USER_IP=`who -u am i 2&gt;/dev/null| awk <span class="string">'&#123;print $NF&#125;'</span>|sed -e <span class="string">'s/[()]//g'</span>`</span><br><span class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$USER_IP</span>"</span> = <span class="string">""</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">USER_IP=`hostname`</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="keyword">if</span> [ ! -d /tmp/dbasky ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">mkdir /tmp/dbasky</span><br><span class="line">chmod 777 /tmp/dbasky</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="keyword">if</span> [ ! -d /tmp/dbasky/<span class="variable">$&#123;LOGNAME&#125;</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">mkdir /tmp/dbasky/<span class="variable">$&#123;LOGNAME&#125;</span></span><br><span class="line">chmod 300 /tmp/dbasky/<span class="variable">$&#123;LOGNAME&#125;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="built_in">export</span> HISTSIZE=4096</span><br><span class="line">DT=`date <span class="string">"+%Y-%m-%d_%H:%M:%S"</span>`</span><br><span class="line"><span class="built_in">export</span> HISTFILE=<span class="string">"/tmp/dbasky/<span class="variable">$&#123;LOGNAME&#125;</span>/<span class="variable">$&#123;USER_IP&#125;</span> dbasky.<span class="variable">$DT</span>"</span></span><br><span class="line">chmod 600 /tmp/dbasky/<span class="variable">$&#123;LOGNAME&#125;</span>/*dbasky* 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
+
+<p>别忘记执行下面命令使脚本生效</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /etc/profile</span><br></pre></td></tr></table></figure>
+
+<p>/tmp/dbasky/root目录下查看记录信息</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.liuchaoming.cn/2019/09/11/Liunx记录登录用户和操作记录/" data-id="ck0mjujqj0009rctjporpidl0" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Liunx/">Liunx</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-Centos7上安装Docker" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/10/Centos7上安装Docker/" class="article-date">
+  <time datetime="2019-09-10T13:13:55.000Z" itemprop="datePublished">2019-09-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/10/Centos7上安装Docker/">Centos7上安装Docker</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h3 id="通过yum源安装docker"><a href="#通过yum源安装docker" class="headerlink" title="通过yum源安装docker"></a>通过yum源安装docker</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install docker</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动docker"><a href="#启动docker" class="headerlink" title="启动docker"></a>启动docker</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
+
+<h3 id="开机自启"><a href="#开机自启" class="headerlink" title="开机自启"></a>开机自启</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> docker</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.liuchaoming.cn/2019/09/10/Centos7上安装Docker/" data-id="ck0mjujq90001rctjpc173nli" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/">Docker</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-Docker运行mysql挂载数据卷权限问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/08/Docker运行mysql挂载数据卷权限问题/" class="article-date">
+  <time datetime="2019-09-08T04:04:49.000Z" itemprop="datePublished">2019-09-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/08/Docker运行mysql挂载数据卷权限问题/">Docker运行mysql挂载数据卷权限问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用docker-compose运行mysql容器报错，没有执行权限的问题</p>
+        
+          <p class="article-more-link">
+            <a href="/2019/09/08/Docker运行mysql挂载数据卷权限问题/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.liuchaoming.cn/2019/09/08/Docker运行mysql挂载数据卷权限问题/" data-id="ck0mjujqr000mrctjiviwyhfv" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/">Docker</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-git-push到GitHub的时候遇到的问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/05/git-push到GitHub的时候遇到的问题/" class="article-date">
+  <time datetime="2019-09-05T13:38:03.000Z" itemprop="datePublished">2019-09-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/05/git-push到GitHub的时候遇到的问题/">git push到GitHub的时候遇到! [rejected] master -&gt; master (non-fast-forward)的问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>git push到GitHub的时候遇到! [rejected] master -&gt; master (non-fast-forward)的问题</p>
+        
+          <p class="article-more-link">
+            <a href="/2019/09/05/git-push到GitHub的时候遇到的问题/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.liuchaoming.cn/2019/09/05/git-push到GitHub的时候遇到的问题/" data-id="ck0mjujqq000jrctjccha81v6" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-关于java的垃圾收集器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/04/关于java的垃圾收集器/" class="article-date">
+  <time datetime="2019-09-04T13:00:20.000Z" itemprop="datePublished">2019-09-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/04/关于java的垃圾收集器/">关于java的垃圾收集器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>虽然对各个收集器进行比较，但并非要挑选出一个最好的收集器。因为知道现在为止还没有所谓最好的垃圾收集器出现，也更加没有万能的垃圾收集器，而是根据具体应用场景选择适合自己的垃圾收集器。如果有一种任何场景下都适用的完美收集器存在，那么HotSpot虚拟机就不会实现那么多不同的垃圾收集器了</p>
+        
+          <p class="article-more-link">
+            <a href="/2019/09/04/关于java的垃圾收集器/#more">继续阅读全文 »</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.liuchaoming.cn/2019/09/04/关于java的垃圾收集器/" data-id="ck0mjujqn000frctjtd29dmh7" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
     <article id="post-Java8的Lambda表达式-上" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/08/30/Java8的Lambda表达式-上/" class="article-date">
@@ -102,7 +425,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.liuchaoming.cn/2019/08/30/Java8的Lambda表达式-上/" data-id="ck03yddt600045wtjpwqwniiq" class="article-share-link">分享</a>
+      <a data-url="http://blog.liuchaoming.cn/2019/08/30/Java8的Lambda表达式-上/" data-id="ck0mjujqg0004rctjwl8xu6ib" class="article-share-link">分享</a>
       
       
       
@@ -147,7 +470,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.liuchaoming.cn/2019/08/13/Mysql导入导出命令详解/" data-id="ck03yddt800065wtjr45249hq" class="article-share-link">分享</a>
+      <a data-url="http://blog.liuchaoming.cn/2019/08/13/Mysql导入导出命令详解/" data-id="ck0mjujqm000erctjw7hx4yh9" class="article-share-link">分享</a>
       
       
       
@@ -192,7 +515,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.liuchaoming.cn/2019/07/31/Docker使用报错/" data-id="ck03yddsy00015wtj7cwmkkic" class="article-share-link">分享</a>
+      <a data-url="http://blog.liuchaoming.cn/2019/07/31/Docker使用报错/" data-id="ck0mjujqd0002rctj5cdw8kpg" class="article-share-link">分享</a>
       
       
       
@@ -206,97 +529,11 @@
 
 
   
-    <article id="post-Blog" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/31/Blog/" class="article-date">
-  <time datetime="2019-07-31T15:03:34.000Z" itemprop="datePublished">2019-07-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/31/Blog/">About Blog</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to this Blog!<br>关于hexo部署使用的一些常用命令</p>
-        
-          <p class="article-more-link">
-            <a href="/2019/07/31/Blog/#more">继续阅读全文 »</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.liuchaoming.cn/2019/07/31/Blog/" data-id="ck03yddt200025wtjvc915cuz" class="article-share-link">分享</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
 
 
-  
-    <article id="post-Mysql数据库设计规范" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/31/Mysql数据库设计规范/" class="article-date">
-  <time datetime="2019-07-31T15:03:34.000Z" itemprop="datePublished">2019-07-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/31/Mysql数据库设计规范/">Mysql数据库设计规范</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一般使用Mysql数据比较多，但是有点小伙伴很少考虑Mysql设计上的细节问题，像SQL语句的规范、索引上的规范等等，本文经过整理后得到一些常用的Mysql数据库设计规范。</p>
-        
-          <p class="article-more-link">
-            <a href="/2019/07/31/Mysql数据库设计规范/#more">继续阅读全文 »</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.liuchaoming.cn/2019/07/31/Mysql数据库设计规范/" data-id="ck03yddt700055wtj2l9p6585" class="article-share-link">分享</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mysql/">Mysql</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页&raquo;</a>
+  </nav>
 </section>
            
     <aside id="sidebar">
@@ -332,7 +569,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title tagcloud">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Docker/" style="font-size: 14px; color: #00f">Docker</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #00f">Hexo</a> <a href="/tags/Java/" style="font-size: 14px; color: #00f">Java</a> <a href="/tags/Mysql/" style="font-size: 25px; color: #ee82ee">Mysql</a>
+      <a href="/tags/Docker/" style="font-size: 25px; color: #ee82ee">Docker</a> <a href="/tags/Git/" style="font-size: 14px; color: #00f">Git</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #00f">Hexo</a> <a href="/tags/Java/" style="font-size: 19.5px; color: #7741f7">Java</a> <a href="/tags/Liunx/" style="font-size: 19.5px; color: #7741f7">Liunx</a> <a href="/tags/Mysql/" style="font-size: 19.5px; color: #7741f7">Mysql</a>
     </div>
   </div>
 
@@ -344,23 +581,23 @@
       <ul>
         
           <li>
-            <a href="/2019/08/30/Java8的Lambda表达式-上/">Java8的Lambda表达式</a>
+            <a href="/2019/09/13/Liunx终端关闭后shell脚本继续运行/">Liunx终端关闭后shell脚本继续运行</a>
           </li>
         
           <li>
-            <a href="/2019/08/13/Mysql导入导出命令详解/">Mysql导入导出命令详解</a>
+            <a href="/2019/09/12/Docker拉取镜像出错/">Docker拉取镜像出错</a>
           </li>
         
           <li>
-            <a href="/2019/07/31/Docker使用报错/">Docker安装后报Cannot connect to the docker daemon at ...</a>
+            <a href="/2019/09/11/Liunx记录登录用户和操作记录/">Liunx记录登录用户和操作记录</a>
           </li>
         
           <li>
-            <a href="/2019/07/31/Blog/">About Blog</a>
+            <a href="/2019/09/10/Centos7上安装Docker/">Centos7上安装Docker</a>
           </li>
         
           <li>
-            <a href="/2019/07/31/Mysql数据库设计规范/">Mysql数据库设计规范</a>
+            <a href="/2019/09/08/Docker运行mysql挂载数据卷权限问题/">Docker运行mysql挂载数据卷权限问题</a>
           </li>
         
       </ul>
@@ -372,7 +609,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title archive">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -454,6 +691,7 @@ window.onload = function() {
 <style>
 #feedAv{display: none !important; margin-top: -250px !important;transform: scale(0) !important;}
 #pop_ad{display: none !important; margin-top: -250px !important;transform: scale(0) !important;}
+#comments {background: #f5f5d5 !important;}
 </style>
     <!--PC和WAP自适应版-->
 <script type="text/javascript ">

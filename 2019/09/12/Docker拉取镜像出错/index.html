@@ -3,20 +3,20 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>Docker安装后报Cannot connect to the docker daemon at ... | Kermit&#39;s Blog</title>
+  <title>Docker拉取镜像出错 | Kermit&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Docker安装后报错：Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?">
+  <meta name="description" content="docker pull镜像的时候出错 1ERROR: Get https://registry-1.docker.io/v2/: dial tcp: lookup registry-1.docker.io on 8.8.8.8:53: too many redirects">
 <meta name="keywords" content="Docker">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker安装后报Cannot connect to the docker daemon at ...">
-<meta property="og:url" content="http://blog.liuchaoming.cn/2019/07/31/Docker使用报错/index.html">
+<meta property="og:title" content="Docker拉取镜像出错">
+<meta property="og:url" content="http://blog.liuchaoming.cn/2019/09/12/Docker拉取镜像出错/index.html">
 <meta property="og:site_name" content="Kermit&#39;s Blog">
-<meta property="og:description" content="Docker安装后报错：Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?">
+<meta property="og:description" content="docker pull镜像的时候出错 1ERROR: Get https://registry-1.docker.io/v2/: dial tcp: lookup registry-1.docker.io on 8.8.8.8:53: too many redirects">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-13T04:49:54.736Z">
+<meta property="og:updated_time" content="2019-09-13T04:54:56.673Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker安装后报Cannot connect to the docker daemon at ...">
-<meta name="twitter:description" content="Docker安装后报错：Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?">
+<meta name="twitter:title" content="Docker拉取镜像出错">
+<meta name="twitter:description" content="docker pull镜像的时候出错 1ERROR: Get https://registry-1.docker.io/v2/: dial tcp: lookup registry-1.docker.io on 8.8.8.8:53: too many redirects">
   
     <link rel="alternate" href="/atom.xml" title="Kermit&#39;s Blog" type="application/atom+xml">
   
@@ -73,10 +73,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Docker使用报错" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Docker拉取镜像出错" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/07/31/Docker使用报错/" class="article-date">
-  <time datetime="2019-07-31T15:03:34.000Z" itemprop="datePublished">2019-07-31</time>
+    <a href="/2019/09/12/Docker拉取镜像出错/" class="article-date">
+  <time datetime="2019-09-12T13:54:41.000Z" itemprop="datePublished">2019-09-12</time>
 </a>
     
   </div>
@@ -87,7 +87,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Docker安装后报Cannot connect to the docker daemon at ...
+      Docker拉取镜像出错
     </h1>
   
 
@@ -97,16 +97,23 @@
       
         <!-- Table of Contents -->
         
-        <p>Docker安装后报错：Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?</p>
+        <p>docker pull镜像的时候出错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR: Get https://registry-1.docker.io/v2/: dial tcp: lookup registry-1.docker.io on 8.8.8.8:53: too many redirects</span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
 
-<h3 id="解决方式执行以下命令"><a href="#解决方式执行以下命令" class="headerlink" title="解决方式执行以下命令"></a>解决方式执行以下命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">sudo service docker restart</span><br><span class="line">sudo service docker status (should see active (running))</span><br></pre></td></tr></table></figure>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><h3 id="执行以下命令"><a href="#执行以下命令" class="headerlink" title="执行以下命令"></a>执行以下命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dig @114.114.114.114 registry-1.docker.io</span><br></pre></td></tr></table></figure>
+
+<p>执行后结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">; &lt;&lt;&gt;&gt; DiG 9.9.4-RedHat-9.9.4-61.el7 &lt;&lt;&gt;&gt; @114.114.114.114 registry-1.docker.io</span><br><span class="line">; (1 server found)</span><br><span class="line">;; global options: +cmd</span><br><span class="line">;; Got answer:</span><br><span class="line">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 52963</span><br><span class="line">;; flags: qr rd ra; QUERY: 1, ANSWER: 8, AUTHORITY: 4, ADDITIONAL: 9</span><br><span class="line"></span><br><span class="line">;; OPT PSEUDOSECTION:</span><br><span class="line">; EDNS: version: 0, flags:; udp: 4096</span><br><span class="line">;; QUESTION SECTION:</span><br><span class="line">;registry-1.docker.io.    IN   A</span><br><span class="line"></span><br><span class="line">;; ANSWER SECTION:</span><br><span class="line">registry-1.docker.io.   300 IN   A   3.210.179.11</span><br><span class="line">registry-1.docker.io.   300 IN   A   52.55.198.220</span><br><span class="line">registry-1.docker.io.   300 IN   A   52.70.175.131</span><br><span class="line">registry-1.docker.io.   300 IN   A   54.175.43.85</span><br><span class="line">registry-1.docker.io.   300 IN   A   54.210.105.17</span><br><span class="line">registry-1.docker.io.   300 IN   A   100.24.246.89</span><br><span class="line">registry-1.docker.io.   300 IN   A   54.88.231.116</span><br><span class="line">registry-1.docker.io.   300 IN   A   52.87.94.70</span><br><span class="line"></span><br><span class="line">;; AUTHORITY SECTION:</span><br><span class="line">docker.io.       61407    IN    NS   ns-1168.awsdns-18.org.</span><br><span class="line">docker.io.       61407    IN    NS   ns-421.awsdns-52.com.</span><br><span class="line">docker.io.       61407    IN    NS   ns-1827.awsdns-36.co.uk.</span><br><span class="line">docker.io.       61407    IN    NS   ns-513.awsdns-00.net.</span><br><span class="line"></span><br><span class="line">;; ADDITIONAL SECTION:</span><br><span class="line">ns-1827.awsdns-36.co.uk. 57947    IN    A     205.251.199.35</span><br><span class="line">ns-1827.awsdns-36.co.uk. 57273    IN    AAAA  2600:9000:5307:2300::1</span><br><span class="line">ns-1168.awsdns-18.org.   47450    IN    A     205.251.196.144</span><br><span class="line">ns-1168.awsdns-18.org.   57090    IN    AAAA  2600:9000:5304:9000::1</span><br><span class="line">ns-421.awsdns-52.com.    143703   IN    A     205.251.193.165</span><br><span class="line">ns-421.awsdns-52.com.    57067    IN    AAAA  2600:9000:5301:a500::1</span><br><span class="line">ns-513.awsdns-00.net.    45649    IN    A     205.251.194.1</span><br><span class="line">ns-513.awsdns-00.net.    45650    IN    AAAA  2600:9000:5302:100::1</span><br><span class="line"></span><br><span class="line">;; Query time: 5 msec</span><br><span class="line">;; SERVER: 114.114.114.114#53(114.114.114.114)</span><br><span class="line">;; WHEN: Thu Sep 12 21:50:15 CST 2019</span><br><span class="line">;; MSG SIZE  rcvd: 493</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改-etc-hosts文件，强制docker-io域名解析到可用IP，添加"><a href="#修改-etc-hosts文件，强制docker-io域名解析到可用IP，添加" class="headerlink" title="修改 /etc/hosts文件，强制docker.io域名解析到可用IP，添加"></a>修改 /etc/hosts文件，强制docker.io域名解析到可用IP，添加</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3.210.179.11      registry-1.docker.io</span><br></pre></td></tr></table></figure>
 
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.liuchaoming.cn/2019/07/31/Docker使用报错/" data-id="ck0mjujqd0002rctj5cdw8kpg" class="article-share-link">分享</a>
+      <a data-url="http://blog.liuchaoming.cn/2019/09/12/Docker拉取镜像出错/" data-id="ck0mjujqh0006rctj76hop3ci" class="article-share-link">分享</a>
       
       
       
@@ -160,19 +167,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/08/13/Mysql导入导出命令详解/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/09/13/Liunx终端关闭后shell脚本继续运行/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          Mysql导入导出命令详解
+          Liunx终端关闭后shell脚本继续运行
         
       </div>
     </a>
   
   
-    <a href="/2019/07/31/Mysql数据库设计规范/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/09/11/Liunx记录登录用户和操作记录/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">Mysql数据库设计规范</div>
+      <div class="article-nav-title">Liunx记录登录用户和操作记录</div>
     </a>
   
 </nav>
@@ -186,7 +193,7 @@
      
        
        
-            <div id="SOHUCS" sid="2019/07/31/Docker使用报错/"> </div>
+            <div id="SOHUCS" sid="2019/09/12/Docker拉取镜像出错/"> </div>
     
       
       
@@ -208,7 +215,7 @@
       
         <strong class="toc-title">文章目录</strong>
         <div class="toc-widget-list">
-              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#解决方式执行以下命令"><span class="toc-number">1.</span> <span class="toc-text">解决方式执行以下命令</span></a></li></ol>
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方法"><span class="toc-number">1.</span> <span class="toc-text">解决方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#执行以下命令"><span class="toc-number">1.1.</span> <span class="toc-text">执行以下命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改-etc-hosts文件，强制docker-io域名解析到可用IP，添加"><span class="toc-number">1.2.</span> <span class="toc-text">修改 /etc/hosts文件，强制docker.io域名解析到可用IP，添加</span></a></li></ol></li></ol>
           </div>
       </div>
     </div>

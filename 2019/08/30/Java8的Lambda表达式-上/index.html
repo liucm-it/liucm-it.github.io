@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Kermit&#39;s Blog">
 <meta property="og:description" content="Java 8版本是现在Java最流行的一个版本。主要改进Java在面向对象的基础上对函数式编程的支持。本文将展示Lambda的基本语法。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-03T14:51:21.709Z">
+<meta property="og:updated_time" content="2019-09-13T04:56:59.583Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java8的Lambda表达式">
 <meta name="twitter:description" content="Java 8版本是现在Java最流行的一个版本。主要改进Java在面向对象的基础上对函数式编程的支持。本文将展示Lambda的基本语法。">
@@ -100,11 +100,11 @@
         <p>Java 8版本是现在Java最流行的一个版本。主要改进Java在面向对象的基础上对函数式编程的支持。本文将展示Lambda的基本语法。</p>
 <a id="more"></a>
 
-<h3 id="为什么使用Lambda表达式？"><a href="#为什么使用Lambda表达式？" class="headerlink" title="为什么使用Lambda表达式？"></a>为什么使用Lambda表达式？</h3><p>我们使用Java的集合经常会定义比较器来进行集合排序。比如要按照字符串长度对字符进行排序，实现一个自定义的Comparator对象并传递给方法进行排序，如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LengthComparator</span> <span class="keyword">implements</span> <span class="title">Comparator</span>&lt;<span class="title">String</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(String firstStr, String secondStr)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">        <span class="keyword">return</span> Integer.compare(firstStr.length(), secondStr.length());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Arrays.sort(strings, <span class="keyword">new</span> LengthComparator());</span><br></pre></td></tr></table></figure>
+<h3 id="为什么使用Lambda表达式"><a href="#为什么使用Lambda表达式" class="headerlink" title="为什么使用Lambda表达式"></a>为什么使用Lambda表达式</h3><p>我们使用Java的集合经常会定义比较器来进行集合排序。比如要按照字符串长度对字符进行排序，实现一个自定义的Comparator对象并传递给方法进行排序，如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LengthComparator</span> <span class="keyword">implements</span> <span class="title">Comparator</span>&lt;<span class="title">String</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(String firstStr, String secondStr)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Integer.compare(firstStr.length(), secondStr.length());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Arrays.sort(strings, <span class="keyword">new</span> LengthComparator());</span><br></pre></td></tr></table></figure>
 
 <p>编写这一段用于比较的代码片段，封装在自定义的Comparator里。Arrays.sort方法会在适当时机就会调用此代码片段，对strings数组进行排序。<br>那么，这个适当时机，是什么时候呢？它可能是某个按钮被点击时，也可能是某个新线程被启动时，如：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyRunner</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">            System.our.println(<span class="string">"do work"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;    </span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Thread(<span class="keyword">new</span> MyRunner()).start();</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyRunner</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">            System.our.println(<span class="string">"do work"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Thread(<span class="keyword">new</span> MyRunner()).start();</span><br></pre></td></tr></table></figure>
 
 <p>把一段代码块传递 - 线程池，排序方法。希望在适当时机需要时，调用这段代码来进行相关工作或排序。</p>
 <p>在java8以前，想要传递代码块很不容易。我们只能把代码块写在一个特殊的类里, 或者使用匿名内部类的方式，实例化一个类对象来传递这段代码。</p>
@@ -123,7 +123,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://blog.liuchaoming.cn/2019/08/30/Java8的Lambda表达式-上/" data-id="ck03yddt600045wtjpwqwniiq" class="article-share-link">分享</a>
+      <a data-url="http://blog.liuchaoming.cn/2019/08/30/Java8的Lambda表达式-上/" data-id="ck0mjujqg0004rctjwl8xu6ib" class="article-share-link">分享</a>
       
       
       
@@ -177,6 +177,15 @@
     
 <nav id="article-nav">
   
+    <a href="/2019/09/04/关于java的垃圾收集器/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          关于java的垃圾收集器
+        
+      </div>
+    </a>
+  
   
     <a href="/2019/08/13/Mysql导入导出命令详解/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
@@ -216,7 +225,7 @@
       
         <strong class="toc-title">文章目录</strong>
         <div class="toc-widget-list">
-              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么使用Lambda表达式？"><span class="toc-number">1.</span> <span class="toc-text">为什么使用Lambda表达式？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lambda的语法"><span class="toc-number">2.</span> <span class="toc-text">Lambda的语法</span></a></li></ol>
+              <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么使用Lambda表达式"><span class="toc-number">1.</span> <span class="toc-text">为什么使用Lambda表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lambda的语法"><span class="toc-number">2.</span> <span class="toc-text">Lambda的语法</span></a></li></ol>
           </div>
       </div>
     </div>
@@ -284,6 +293,7 @@ window.onload = function() {
 <style>
 #feedAv{display: none !important; margin-top: -250px !important;transform: scale(0) !important;}
 #pop_ad{display: none !important; margin-top: -250px !important;transform: scale(0) !important;}
+#comments {background: #f5f5d5 !important;}
 </style>
     <!--PC和WAP自适应版-->
 <script type="text/javascript ">
