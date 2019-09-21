@@ -3,13 +3,6 @@
 
 
     <url>
-        <loc>https://blog.liuchaoming.cn/tags/Hexo-%E5%8D%9A%E5%AE%A2-%E4%B8%BB%E9%A2%98/</loc>
-        <lastmod>2019-09-21T11:36:03.265Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://blog.liuchaoming.cn/tags/Docker/</loc>
         <lastmod>2019-09-21T06:22:10.656Z</lastmod>
         <changefreq>weekly</changefreq>

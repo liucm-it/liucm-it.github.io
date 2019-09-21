@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.liuchaoming.cn/"/>
-  <updated>2019-09-21T11:36:03.265Z</updated>
+  <updated>2019-09-13T06:29:54.730Z</updated>
   <id>https://blog.liuchaoming.cn/</id>
   
   <author>
@@ -15,29 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>博客主题</title>
-    <link href="https://blog.liuchaoming.cn/2019/09/21/https://xaoxuu.com/blog/2017-07-05-hexo-blog//"/>
-    <id>https://blog.liuchaoming.cn/2019/09/21/https://xaoxuu.com/blog/2017-07-05-hexo-blog//</id>
-    <published>2019-09-21T06:25:00.000Z</published>
-    <updated>2019-09-21T11:36:03.265Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://img.vim-cn.com/d9/a9af7dc49fc0af8ca3e6dd2450a2f7095a87db.png" alt></p><a id="more"></a>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://img.vim-cn.com/d9/a9af7dc49fc0af8ca3e6dd2450a2f7095a87db.png&quot; alt&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="https://blog.liuchaoming.cn/categories/Hexo/"/>
-    
-    
-      <category term="Hexo,博客,主题" scheme="https://blog.liuchaoming.cn/tags/Hexo-%E5%8D%9A%E5%AE%A2-%E4%B8%BB%E9%A2%98/"/>
-    
-  </entry>
   
   <entry>
     <title>Liunx终端关闭后shell脚本继续运行</title>

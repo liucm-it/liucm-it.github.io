@@ -4,31 +4,6 @@
   
     
     <entry>
-      <title>博客主题</title>
-      <link href="/2019/09/21/https://xaoxuu.com/blog/2017-07-05-hexo-blog//"/>
-      <url>/2019/09/21/https://xaoxuu.com/blog/2017-07-05-hexo-blog//</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://img.vim-cn.com/d9/a9af7dc49fc0af8ca3e6dd2450a2f7095a87db.png" alt></p><a id="more"></a>]]></content>
-      
-      
-      <categories>
-          
-          <category> Hexo </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Hexo,博客,主题 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Liunx终端关闭后shell脚本继续运行</title>
       <link href="/2019/09/13/Liunx%E7%BB%88%E7%AB%AF%E5%85%B3%E9%97%AD%E5%90%8Eshell%E8%84%9A%E6%9C%AC%E7%BB%A7%E7%BB%AD%E8%BF%90%E8%A1%8C/"/>
       <url>/2019/09/13/Liunx%E7%BB%88%E7%AB%AF%E5%85%B3%E9%97%AD%E5%90%8Eshell%E8%84%9A%E6%9C%AC%E7%BB%A7%E7%BB%AD%E8%BF%90%E8%A1%8C/</url>
