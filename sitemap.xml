@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.liuchaoming.cn/comments/index.html</loc>
+    
+    <lastmod>2019-09-28T11:45:25.902Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.liuchaoming.cn/about/index.html</loc>
     
     <lastmod>2019-09-28T11:42:36.971Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>https://blog.liuchaoming.cn/404.html</loc>
     
     <lastmod>2019-09-21T11:19:51.856Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.liuchaoming.cn/comments/index.html</loc>
-    
-    <lastmod>2019-09-21T06:50:45.672Z</lastmod>
     
   </url>
   
