@@ -300,29 +300,6 @@
   </entry>
   
   <entry>
-    <title>Docker安装后报Cannot connect to the docker daemon at ...</title>
-    <link href="https://blog.liuchaoming.cn/2019/07/31/Docker%E4%BD%BF%E7%94%A8%E6%8A%A5%E9%94%99/"/>
-    <id>https://blog.liuchaoming.cn/2019/07/31/Docker使用报错/</id>
-    <published>2019-07-31T15:03:34.000Z</published>
-    <updated>2019-09-21T04:42:30.828Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Docker安装后报错：Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?</p><a id="more"></a><h3 id="解决方式执行以下命令"><a href="#解决方式执行以下命令" class="headerlink" title="解决方式执行以下命令"></a>解决方式执行以下命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">sudo service docker restart</span><br><span class="line">sudo service docker status (should see active (running))</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Docker安装后报错：Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Docker" scheme="https://blog.liuchaoming.cn/categories/Docker/"/>
-    
-    
-      <category term="Docker" scheme="https://blog.liuchaoming.cn/tags/Docker/"/>
-    
-  </entry>
-  
-  <entry>
     <title>About Blog</title>
     <link href="https://blog.liuchaoming.cn/2019/07/31/Blog/"/>
     <id>https://blog.liuchaoming.cn/2019/07/31/Blog/</id>
@@ -342,6 +319,29 @@
     
     
       <category term="Hexo" scheme="https://blog.liuchaoming.cn/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker安装后报Cannot connect to the docker daemon at ...</title>
+    <link href="https://blog.liuchaoming.cn/2019/07/31/Docker%E4%BD%BF%E7%94%A8%E6%8A%A5%E9%94%99/"/>
+    <id>https://blog.liuchaoming.cn/2019/07/31/Docker使用报错/</id>
+    <published>2019-07-31T15:03:34.000Z</published>
+    <updated>2019-09-21T04:42:30.828Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Docker安装后报错：Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?</p><a id="more"></a><h3 id="解决方式执行以下命令"><a href="#解决方式执行以下命令" class="headerlink" title="解决方式执行以下命令"></a>解决方式执行以下命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">sudo service docker restart</span><br><span class="line">sudo service docker status (should see active (running))</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Docker安装后报错：Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Docker" scheme="https://blog.liuchaoming.cn/categories/Docker/"/>
+    
+    
+      <category term="Docker" scheme="https://blog.liuchaoming.cn/tags/Docker/"/>
     
   </entry>
   
