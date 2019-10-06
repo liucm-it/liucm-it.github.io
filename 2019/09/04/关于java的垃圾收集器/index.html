@@ -379,13 +379,7 @@
 <p><img src="https://cdn.jsdelivr.net/gh/liucm-it/ImgHosting/pic/ParNew.jpg" alt></p>
 <p>它是许多运行在 Server 模式下的虚拟机的首要选择，除了 Serial 收集器外，只有它能与 CMS 收集器（真正意义上的并发收集器，后面会介绍到）配合工作。</p>
 <blockquote>
-<p>并行和并发概念：</p>
-</blockquote>
-<blockquote>
-<p>并行（Parallel） ：指多条垃圾收集线程并行工作，但此时用户线程仍然处于等待状态。</p>
-</blockquote>
-<blockquote>
-<p>并发（Concurrent）：指用户线程与垃圾收集线程同时执行（但不一定是并行，可能会交替执行），用户程序在继续运行，而垃圾收集器运行在另一个 CPU 上。</p>
+<p>并行和并发概念：<br>并行（Parallel） ：指多条垃圾收集线程并行工作，但此时用户线程仍然处于等待状态。<br>并发（Concurrent）：指用户线程与垃圾收集线程同时执行（但不一定是并行，可能会交替执行），用户程序在继续运行，而垃圾收集器运行在另一个 CPU 上。</p>
 </blockquote>
 <h3 id="Parallel-Scavenge-收集器"><a href="#Parallel-Scavenge-收集器" class="headerlink" title="Parallel Scavenge 收集器"></a>Parallel Scavenge 收集器</h3><blockquote>
 <p>Parallel Scavenge 收集器也是使用复制算法的多线程收集器，它看上去几乎和ParNew都一样</p>
@@ -451,7 +445,7 @@
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-10-06T11:49:01+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-10-06T11:50:39+08:00">
   <a class="notlink">
     <i class="fas fa-clock" aria-hidden="true"></i>
     <p>更新于 2019年10月6日</p>
