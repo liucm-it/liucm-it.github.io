@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.liuchaoming.cn/2019/09/04/%E5%85%B3%E4%BA%8Ejava%E7%9A%84%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/</loc>
+    <lastmod>2019-10-06</lastmod>
+  </url>  <url>
     <loc>https://blog.liuchaoming.cn/2019/09/28/Git%E8%AE%BE%E7%BD%AE%E6%B0%B8%E4%B9%85%E4%BF%9D%E5%AD%98%E5%AF%86%E7%A0%81/</loc>
     <lastmod>2019-09-28</lastmod>
   </url>  <url>
@@ -17,9 +20,6 @@
     <lastmod>2019-09-21</lastmod>
   </url>  <url>
     <loc>https://blog.liuchaoming.cn/2019/07/31/Docker%E4%BD%BF%E7%94%A8%E6%8A%A5%E9%94%99/</loc>
-    <lastmod>2019-09-21</lastmod>
-  </url>  <url>
-    <loc>https://blog.liuchaoming.cn/2019/09/04/%E5%85%B3%E4%BA%8Ejava%E7%9A%84%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/</loc>
     <lastmod>2019-09-21</lastmod>
   </url>  <url>
     <loc>https://blog.liuchaoming.cn/2019/09/11/Liunx%E8%AE%B0%E5%BD%95%E7%99%BB%E5%BD%95%E7%94%A8%E6%88%B7%E5%92%8C%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/</loc>
