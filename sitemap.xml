@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.liuchaoming.cn/about/index.html</loc>
+    
+    <lastmod>2019-10-31T12:13:51.997Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.liuchaoming.cn/2019/09/13/Liunx%E7%BB%88%E7%AB%AF%E5%85%B3%E9%97%AD%E5%90%8Eshell%E8%84%9A%E6%9C%AC%E7%BB%A7%E7%BB%AD%E8%BF%90%E8%A1%8C/</loc>
+    
+    <lastmod>2019-10-31T12:09:00.094Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.liuchaoming.cn/2019/08/13/Mysql%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</loc>
+    
+    <lastmod>2019-10-21T12:23:09.618Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.liuchaoming.cn/2019/09/04/%E5%85%B3%E4%BA%8Ejava%E7%9A%84%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/</loc>
     
     <lastmod>2019-10-06T03:50:39.058Z</lastmod>
@@ -19,13 +40,6 @@
     <loc>https://blog.liuchaoming.cn/comments/index.html</loc>
     
     <lastmod>2019-10-04T13:44:11.303Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.liuchaoming.cn/about/index.html</loc>
-    
-    <lastmod>2019-10-04T13:41:00.305Z</lastmod>
     
   </url>
   
@@ -124,20 +138,6 @@
     <loc>https://blog.liuchaoming.cn/2019/09/12/Docker%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F%E5%87%BA%E9%94%99/</loc>
     
     <lastmod>2019-09-21T03:55:26.837Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.liuchaoming.cn/2019/09/13/Liunx%E7%BB%88%E7%AB%AF%E5%85%B3%E9%97%AD%E5%90%8Eshell%E8%84%9A%E6%9C%AC%E7%BB%A7%E7%BB%AD%E8%BF%90%E8%A1%8C/</loc>
-    
-    <lastmod>2019-09-13T06:29:54.730Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.liuchaoming.cn/2019/08/13/Mysql%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</loc>
-    
-    <lastmod>2019-09-13T04:57:33.615Z</lastmod>
     
   </url>
   
