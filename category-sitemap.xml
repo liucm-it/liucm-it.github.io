@@ -8,6 +8,13 @@
     </url>
 
     <url>
+        <loc>https://blog.liuchaoming.cn/categories/CentOS/</loc>
+        <lastmod>2019-11-19T13:32:34.720Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://blog.liuchaoming.cn/categories/Liunx/</loc>
         <lastmod>2019-10-31T12:09:00.094Z</lastmod>
         <changefreq>weekly</changefreq>
