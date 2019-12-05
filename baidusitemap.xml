@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.liuchaoming.cn/2019/11/23/Vim%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</loc>
+    <lastmod>2019-12-05</lastmod>
+  </url>  <url>
+    <loc>https://blog.liuchaoming.cn/2019/11/19/git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/</loc>
+    <lastmod>2019-11-19</lastmod>
+  </url>  <url>
+    <loc>https://blog.liuchaoming.cn/2019/07/31/Blog/</loc>
+    <lastmod>2019-11-19</lastmod>
+  </url>  <url>
     <loc>https://blog.liuchaoming.cn/2019/11/14/%E9%85%8D%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2019-11-19</lastmod>
   </url>  <url>
@@ -15,9 +24,6 @@
   </url>  <url>
     <loc>https://blog.liuchaoming.cn/2019/09/28/Git%E8%AE%BE%E7%BD%AE%E6%B0%B8%E4%B9%85%E4%BF%9D%E5%AD%98%E5%AF%86%E7%A0%81/</loc>
     <lastmod>2019-09-28</lastmod>
-  </url>  <url>
-    <loc>https://blog.liuchaoming.cn/2019/07/31/Blog/</loc>
-    <lastmod>2019-09-26</lastmod>
   </url>  <url>
     <loc>https://blog.liuchaoming.cn/2019/09/26/Git%E6%8F%90%E4%BA%A4%E6%97%B6%E5%BF%BD%E7%95%A5%E5%B7%B2%E6%8F%90%E4%BA%A4%E8%BF%87%E4%B8%94%E6%9C%AC%E5%9C%B0%E4%BF%AE%E6%94%B9%E8%BF%87%E7%9A%84%E6%96%87%E4%BB%B6/</loc>
     <lastmod>2019-09-26</lastmod>
