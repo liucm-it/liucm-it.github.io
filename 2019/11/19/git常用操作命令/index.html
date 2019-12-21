@@ -356,9 +356,9 @@
     <section class="article typo">
       <div class="article-entry" itemprop="articleBody">
         <ol>
-<li>我们首先将一个已存在的 Git 仓库添加为正在工作的仓库的子模块。 你可以通过在 <code>git submodule add</code> 命令后面加上想要跟踪的项目 URL 来添加新的子模块。 例如添加一个名为 “DbConnector” 的库。</li>
+<li>我们首先将一个已存在的 Git 仓库添加为正在工作的仓库的子模块。 你可以通过在 <code>git submodule add</code> 命令后面加上想要跟踪的项目 URL 来添加新的子模块。 例如添加一个名为 “Connector” 的库。</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule add https://github.com/chaconinc/DbConnector</span><br><span class="line">Cloning into &apos;DbConnector&apos;...</span><br><span class="line">remote: Counting objects: 11, done.</span><br><span class="line">remote: Compressing objects: 100% (10/10), done.</span><br><span class="line">remote: Total 11 (delta 0), reused 11 (delta 0)</span><br><span class="line">Unpacking objects: 100% (11/11), done.</span><br><span class="line">Checking connectivity... done.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule add https://github.com/xxx/Connector</span><br><span class="line">Cloning into &apos;DbConnector&apos;...</span><br><span class="line">remote: Counting objects: 11, done.</span><br><span class="line">remote: Compressing objects: 100% (10/10), done.</span><br><span class="line">remote: Total 11 (delta 0), reused 11 (delta 0)</span><br><span class="line">Unpacking objects: 100% (11/11), done.</span><br><span class="line">Checking connectivity... done.</span><br></pre></td></tr></table></figure>
 
 <p>2、每次更新.gitmodules文件, 必须同步下(git submodule sync), 否则识别不到.</p>
 <p>3、如何为一个项目添加一个子项目呢? git submodule add 项目地址, 然后push到<br>你的远程仓库(如gitlab/github)，你可以在项目里看到“子项目名+@+序列号”的链接.</p>
@@ -384,7 +384,7 @@
     <div class="new-meta-box">
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-12-19T19:54:50+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-12-19T22:14:05+08:00">
   <a class="notlink">
     <i class="fas fa-clock" aria-hidden="true"></i>
     <p>更新于 2019年12月19日</p>
