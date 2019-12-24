@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://blog.liuchaoming.cn/posts/15470/</loc>
-    <lastmod>2019-12-24</lastmod>
-  </url>  <url>
-    <loc>https://blog.liuchaoming.cn/posts/19477/</loc>
-    <lastmod>2019-12-24</lastmod>
-  </url>  <url>
-    <loc>https://blog.liuchaoming.cn/posts/61412/</loc>
-    <lastmod>2019-12-24</lastmod>
-  </url>  <url>
-    <loc>https://blog.liuchaoming.cn/posts/6854/</loc>
-    <lastmod>2019-12-24</lastmod>
-  </url>  <url>
     <loc>https://blog.liuchaoming.cn/posts/53756/</loc>
     <lastmod>2019-12-24</lastmod>
   </url>  <url>
@@ -50,6 +38,18 @@
     <lastmod>2019-12-24</lastmod>
   </url>  <url>
     <loc>https://blog.liuchaoming.cn/posts/4143/</loc>
+    <lastmod>2019-12-24</lastmod>
+  </url>  <url>
+    <loc>https://blog.liuchaoming.cn/posts/15470/</loc>
+    <lastmod>2019-12-24</lastmod>
+  </url>  <url>
+    <loc>https://blog.liuchaoming.cn/posts/19477/</loc>
+    <lastmod>2019-12-24</lastmod>
+  </url>  <url>
+    <loc>https://blog.liuchaoming.cn/posts/61412/</loc>
+    <lastmod>2019-12-24</lastmod>
+  </url>  <url>
+    <loc>https://blog.liuchaoming.cn/posts/6854/</loc>
     <lastmod>2019-12-24</lastmod>
   </url>
 </urlset>
