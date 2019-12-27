@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.kming6.com/posts/15470/</loc>
-    <lastmod>2019-12-27</lastmod>
-  </url>  <url>
-    <loc>https://www.kming6.com/posts/19477/</loc>
-    <lastmod>2019-12-27</lastmod>
-  </url>  <url>
     <loc>https://www.kming6.com/posts/61412/</loc>
     <lastmod>2019-12-27</lastmod>
   </url>  <url>
@@ -53,6 +47,12 @@
     <lastmod>2019-12-27</lastmod>
   </url>  <url>
     <loc>https://www.kming6.com/posts/4143/</loc>
+    <lastmod>2019-12-27</lastmod>
+  </url>  <url>
+    <loc>https://www.kming6.com/posts/15470/</loc>
+    <lastmod>2019-12-27</lastmod>
+  </url>  <url>
+    <loc>https://www.kming6.com/posts/19477/</loc>
     <lastmod>2019-12-27</lastmod>
   </url>
 </urlset>
