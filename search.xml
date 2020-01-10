@@ -90,6 +90,8 @@
       
       <categories>
           
+          <category> Liunx </category>
+          
           <category> CentOS </category>
           
       </categories>
@@ -373,6 +375,8 @@
       
       <categories>
           
+          <category> 数据库 </category>
+          
           <category> Mysql </category>
           
       </categories>
@@ -397,6 +401,8 @@
       
       
       <categories>
+          
+          <category> 数据库 </category>
           
           <category> Mysql </category>
           
