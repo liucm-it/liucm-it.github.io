@@ -4,6 +4,137 @@
   
     
     <entry>
+      <title>Java线程之ThreadLocal</title>
+      <link href="/posts/16706/"/>
+      <url>/posts/16706/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>ThreadLocal笔记</p><a id="more"></a><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><blockquote><p>提供<code>线程局部</code>变量；一个线程局部变量在多个线程中，分别有独立的值（副本）。</p></blockquote><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><blockquote><p>简单（开箱即用）、快速（无额外开销）、安全（线程安全）</p></blockquote><h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><blockquote><p>多线程场景（资源持有、线程一致性、并发计算、线程安全等场景）</p></blockquote><h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><blockquote><p>Java中使用<code>哈希表</code>实现。</p></blockquote><h3 id="应用范围"><a href="#应用范围" class="headerlink" title="应用范围"></a>应用范围</h3><blockquote><p>几乎所有提供多线程特征的语言。</p></blockquote><h3 id="ThreadLocal基本使用"><a href="#ThreadLocal基本使用" class="headerlink" title="ThreadLocal基本使用"></a>ThreadLocal基本使用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> ThreadLocal&lt;Long&gt; tl = <span class="keyword">new</span> Threadlocal() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> Long <span class="title">initialValue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      System.out.println(<span class="string">"Inital Value run..."</span>);</span><br><span class="line">      <span class="keyword">return</span> <span class="number">500L</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    System.out.println(tl.get()); <span class="comment">// 500</span></span><br><span class="line">    tl.set(<span class="number">100L</span>);</span><br><span class="line">    System.out.println(tl.get()); <span class="comment">// 100</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JVM类加载剖析</title>
+      <link href="/posts/35784/"/>
+      <url>/posts/35784/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><a id="more"></a><h3 id="类加载、连接与初始化"><a href="#类加载、连接与初始化" class="headerlink" title="类加载、连接与初始化"></a>类加载、连接与初始化</h3><ul><li>加载: 查找并加载类的二进制数据</li><li>连接:<ul><li>验证: 确保被加载的类的正确性</li><li>准备: 为类的静态变量分配内存，并将其初始化为默认值</li><li>解析: 把类中的符号引用转换为直接引用</li></ul></li><li>初始化: 为类的静态变量赋予正确的初始值</li></ul><blockquote><p>连接的准备阶段初始的值是默认值，初始化阶段时的值才是正确赋予的值<br>private static int a = 3; a准备阶段先被初始化为0，初始化阶段赋予的3</p></blockquote><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> Singleton singleton = <span class="keyword">new</span> Singleton();</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> value1;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> value2 = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    value1++;</span><br><span class="line">    value2++;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> singleton;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Singleton singleton = singleton.getInstance();</span><br><span class="line">    System.out.println(<span class="string">"value1 = "</span> + singleton.value1)；<span class="comment">// value1 = 1</span></span><br><span class="line">    System.out.println(<span class="string">"value2 = "</span> + singleton.value2)；<span class="comment">// value2 = 0</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>类加载的触发方式<ul><li>创建类的实例</li><li>访问某个类或接口的静态变量，或者对该静态变量赋值</li><li>调用类的静态方法</li><li>反射(例如：<code>Class.forName(&quot;com.github.Test&quot;)</code>)</li><li>初始化一个类的子类</li><li>Java虚拟机启动时被标明为启动类的类(Java Test)</li></ul></li></ul><blockquote><p>类加载指的是将类的.class文件中的二进制数据读入到内存中，将其放在运行时数据区的方法内，然后在堆区创建一个java.lang.Class对象，用来封装类的方法区的数据结构</p></blockquote><ul><li>加载.class文件的方式<ul><li>从本地系统中直接加载</li><li>通过网络下载.class文件</li><li>从zip、jar等归档文件中加载.class文件</li><li>从专有数据库中提取.class文件</li><li>将Java源文件动态编译为.class文件</li></ul></li></ul><p><img src="https://cdn.jsdelivr.net/gh/liucm-it/ImgHosting/pic/Java-class-load.png" alt="类的加载"></p><blockquote><p>类加载的最终产品是位于堆区中的Class对象<br>Class对象封装了类在方法区内的数据结构，并且向Java程序员提供了访问方法区内的数据结构的接口</p></blockquote><h3 id="类加载器ClassLoader"><a href="#类加载器ClassLoader" class="headerlink" title="类加载器ClassLoader"></a>类加载器ClassLoader</h3><ul><li>Java虚拟机自带加载器<ul><li>根类加载器（Bootstrap）</li><li>扩展类加载器 （Extension）</li><li>系统类加载器 （System）</li></ul></li><li>用户自定义加载器<ul><li>java.lang.classLoader的子类</li><li>用可定制类的加载方式</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java之集合框架</title>
+      <link href="/posts/15243/"/>
+      <url>/posts/15243/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Java的集合框架就是常见数据结构的实现，学习Java的集合框架可以加深对数据结构的理解</p><a id="more"></a><h2 id="集合接口总览"><a href="#集合接口总览" class="headerlink" title="集合接口总览"></a>集合接口总览</h2><h3 id="List、Set、Map三者的区别"><a href="#List、Set、Map三者的区别" class="headerlink" title="List、Set、Map三者的区别"></a>List、Set、Map三者的区别</h3><ul><li>List：List接口存储一组不唯一且有序的对象，可以存在多个相同元素</li><li>Set: 不允许重复的集合。相同的元素只会存在一个。</li><li>Map：使用键值对存储。Key不能重复，Value可以重复，典型的Key是String，也可以是Object</li></ul><h3 id="集合框架底层数据结构"><a href="#集合框架底层数据结构" class="headerlink" title="集合框架底层数据结构"></a>集合框架底层数据结构</h3><ul><li>List<ul><li>ArrayList: Object 数组</li><li>Vector: Object 数组</li><li>LinkedList: 双向链表(JDK1.6之前为循环链表，JDK1.7取消循环)</li></ul></li><li>Set<ul><li>HashSet(无序、唯一): 本质上基于 HashMap 实现，底层直接采用 HashMap 保存元素</li><li>LinkedHashSet: LinkedHashSet继承于HashSet，底层通过 LinkedHashMap 实现，类似 HashSet 内部基于 HashMap 实现一样，有一点区别。</li><li>TreeSet(有序、唯一): 基于红黑树实现(自平衡排序二叉树)</li></ul></li><li>Map<ul><li>HashMap: JDK1.8之前 HashMap 由<code>数组+链表</code>组成的，数组是 HashMap 的主体，链表则是主要为了解决哈希冲突而存在的（“拉链法”解决冲突）。JDK1.8以后由<code>数组+链表+红黑树</code>组成，当链表长度大于阈值（默认为8）（将链表转换成红黑树前会判断，如果当前数组的长度小于 64，那么会选择先进行数组扩容，而不是转换为红黑树）时，将链表转化为红黑树，以减少搜索时间</li><li>LinkedHashMap: LinkedHashMap 继承自 HashMap，所以它的底层仍然是基于拉链式散列结构即由数组和链表或红黑树组成。另外，LinkedHashMap 在上面结构的基础上，增加了一条双向链表，使得上面的结构可以保持键值对的插入顺序。同时通过对链表进行相应的操作，实现了访问顺序相关逻辑。</li><li>Hashtable: <code>数组+链表</code>组成的，数组是 Hashtable 的主体，链表则是主要为了解决哈希冲突而存在的</li><li>TreeMap: 红黑树（自平衡的排序二叉树）</li></ul></li></ul><h2 id="集合中的Iterator迭代器"><a href="#集合中的Iterator迭代器" class="headerlink" title="集合中的Iterator迭代器"></a>集合中的Iterator迭代器</h2><h3 id="ArrayList与LinkedList区别"><a href="#ArrayList与LinkedList区别" class="headerlink" title="ArrayList与LinkedList区别"></a>ArrayList与LinkedList区别</h3><ul><li>是否线程安全：<code>ArrayList</code> 和 <code>LinkedList</code> 都是不保证线程安全的</li><li>底层数据结构: Arraylist 底层使用的是 <code>Object 数组</code>；LinkedList 底层使用的是 <code>双向链表</code> 数据结构</li><li>是否支持随机访问: LinkedList 不支持高效的随机元素访问，而 ArrayList 支持。快速随机访问就是通过元素的序号快速获取元素对象(对应get(int index)方法)</li><li>插入删除影响:<ul><li>ArrayList 采用数组存储，所以插入和删除元素的时间复杂度会受元素位置的影响。 比如：执行add(E e)方法的时候， ArrayList 会默认在将指定的元素追加到此列表的末尾，这种情况时间复杂度就是O(1)。对于随机访问get和set，ArrayList觉得优于LinkedList，因为LinkedList要移动指针</li><li>LinkedList 采用链表存储，所以对于add(E e)方法的插入，删除元素时间复杂度不受元素位置的影响，时间复杂度近似 O(1)，对于新增和删除操作add和remove，LinedList比较占优势，因为ArrayList要移动数据。</li><li>对ArrayList和LinkedList而言，在列表末尾增加一个元素所花的开销都是固定的。对ArrayList而言，主要是在内部数组中增加一项，指向所添加的元素，偶尔可能会导致对数组重新进行分配；而对LinkedList而言，这个开销是统一的，分配一个内部Entry对象。</li><li>在ArrayList的中间插入或删除一个元素意味着这个列表中剩余的元素都会被移动；而在LinkedList的中间插入或删除一个元素的开销是固定的。</li></ul></li><li>内存空间占用: ArrayList的空 间浪费主要体现在在list列表的结尾会预留一定的容量空间，而LinkedList的空间花费则体现在它的每一个元素都需要消耗比ArrayList更多的空间</li></ul><blockquote><p>当操作是在一列数据的后面添加数据而不是在前面或中间,并且需要随机地访问其中的元素时,使用ArrayList会提供比较好的性能；当你的操作是在一列数据的前面或中间添加或删除数据,并且按照顺序访问其中的元素时,就应该使用LinkedList了</p></blockquote><h3 id="RandomAccess接口"><a href="#RandomAccess接口" class="headerlink" title="RandomAccess接口"></a>RandomAccess接口</h3><p>RandomAccess 接口中什么都没有定义。所以， RandomAccess 接口是一个标识接口，就像 Serializable 序列化接口一样。标识什么？ 标识实现这个接口的类具有(随机访问)功能</p><p>在 binarySearch（) 方法中，使用到RandomAccess接口</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function"><span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(List&lt;? extends Comparable&lt;? <span class="keyword">super</span> T&gt;&gt; list, T key)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (list <span class="keyword">instanceof</span> RandomAccess || list.size()&lt;BINARYSEARCH_THRESHOLD)</span><br><span class="line">        <span class="keyword">return</span> Collections.indexedBinarySearch(list, key);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> Collections.iteratorBinarySearch(list, key);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>ArrayList 实现了 RandomAccess 接口， 而 LinkedList 没有实现。为什么？这是和底层数据结构有关！ArrayList 底层是<code>数组</code>，而 LinkedList 底层是<code>链表</code>。数组天然支持随机访问，时间复杂度为 O(1)，所以称为快速随机访问。链表需要遍历到特定位置才能访问特定位置的元素，时间复杂度为 O(n)，所以不支持快速随机访问。，ArrayList 实现了 RandomAccess 接口，就表明了他具有快速随机访问功能。 RandomAccess 接口只是标识，并不是说 ArrayList 因为实现 RandomAccess 接口才具有快速随机访问的功能！</p><h4 id="List遍历方式选择"><a href="#List遍历方式选择" class="headerlink" title="List遍历方式选择"></a>List遍历方式选择</h4><blockquote><p>实现了 RandomAccess 接口的list，优先选择普通 for 循环 ，其次 foreach,<br>未实现 RandomAccess接口的list，优先选择iterator遍历（foreach遍历底层也是通过iterator实现的），大size的数据，千万不要使用普通for循环</p></blockquote><h3 id="双向链表和双向循环链表"><a href="#双向链表和双向循环链表" class="headerlink" title="双向链表和双向循环链表"></a>双向链表和双向循环链表</h3><p><strong><em>双向链表</em></strong>： 包含两个指针，一个prev指向前一个节点，一个next指向后一个节点。<br><strong><em>双向循环链表</em></strong>： 最后一个节点(尾部)的 next 指向head，而 head 的prev指向最后一个节点(尾部)，构成一个环。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> 集合框架 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>CentOs下升级git版本</title>
+      <link href="/posts/54696/"/>
+      <url>/posts/54696/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>你是否在使用git pull、git push、git clone的时候，或者在使用jenkins发版的时候，可能会报类似如下的错误</p><a id="more"></a><h3 id="为什么升级"><a href="#为什么升级" class="headerlink" title="为什么升级"></a>为什么升级</h3><p>在使用git pull、git push、git clone的时候，或者在使用jenkins发版的时候，可能会报类似如下的错误</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">error: The requested URL returned error: 401 Unauthorized while accessing https://git.oschina.net/demo/demo.git/info/refs </span><br><span class="line">fatal: HTTP request failed</span><br></pre></td></tr></table></figure><p>像centos7.5一般自带的git都是1.8.3.1版本的，比较老了，所以有时候需要升级一下git版本</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># git --version</span><br><span class="line">git version 1.8.3.1</span><br></pre></td></tr></table></figure><h3 id="安装依赖软件"><a href="#安装依赖软件" class="headerlink" title="安装依赖软件"></a>安装依赖软件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel asciidoc</span><br><span class="line"></span><br><span class="line">yum install  gcc perl-ExtUtils-MakeMaker</span><br></pre></td></tr></table></figure><h3 id="卸载系统自带低版本Git"><a href="#卸载系统自带低版本Git" class="headerlink" title="卸载系统自带低版本Git"></a>卸载系统自带低版本Git</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove git</span><br></pre></td></tr></table></figure><h3 id="编译安装最新的Git版本"><a href="#编译安装最新的Git版本" class="headerlink" title="编译安装最新的Git版本"></a>编译安装最新的Git版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost home]<span class="comment">#  cd /usr/local/src/</span></span><br><span class="line"></span><br><span class="line">[root@localhost home]<span class="comment">#  wget https://www.kernel.org/pub/software/scm/git/git-2.9.5.tar.xz</span></span><br><span class="line"></span><br><span class="line">[root@localhost home]<span class="comment">#  tar -vxf git-2.9.5.tar.xz</span></span><br><span class="line"></span><br><span class="line">[root@localhost home]<span class="comment">#  cd git-2.9.5</span></span><br><span class="line"></span><br><span class="line">[root@localhost home]<span class="comment">#  make prefix=/usr/local/git all</span></span><br><span class="line"></span><br><span class="line">[root@localhost home]<span class="comment">#  make prefix=/usr/local/git install</span></span><br><span class="line"></span><br><span class="line">[root@localhost home]<span class="comment">#  echo "export PATH=$PATH:/usr/local/git/bin" &gt;&gt; /etc/profile</span></span><br><span class="line"></span><br><span class="line">[root@localhost home]<span class="comment">#  source /etc/profile</span></span><br><span class="line"></span><br><span class="line">[root@localhost home]<span class="comment">#  git --version</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CentOs </tag>
+            
+            <tag> Liunx </tag>
+            
+            <tag> Git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>工作必备技能之Git</title>
+      <link href="/posts/6335/"/>
+      <url>/posts/6335/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>程序员必学技能Git</p><a id="more"></a><h3 id="Git基础学习"><a href="#Git基础学习" class="headerlink" title="Git基础学习"></a>Git基础学习</h3><ul><li>推荐学习地址<a href="https://git-scm.com/book/zh/v2" rel="external nofollow noopener noreferrer" target="_blank">Pro Git</a>至少学习完前五章</li><li>学习的过程多练习、多思考，多多注意Git的提示信息，读懂Git提示信息对你很有帮助</li><li>扩展推荐学习<a href="https://ohshitgit.com" rel="external nofollow noopener noreferrer" target="_blank">Oh Shit, Git!?!</a></li></ul><h3 id="Git初始配置"><a href="#Git初始配置" class="headerlink" title="Git初始配置"></a>Git初始配置</h3><blockquote><p>配置文件优先级：.git/config &gt; ~/.gitconfig &gt; /etc/gitconfig<br>可以根据自己习惯调整配置</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;XXX XXX&quot; # 换成自己的名字</span><br><span class="line">git config --global user.email xxx@xxx.com # 换成自己的邮箱</span><br><span class="line">git config --global core.editor vim</span><br><span class="line">git config --global core.quotepath false</span><br><span class="line">git config --global push.default simple</span><br><span class="line">git config --global rerere.enabled true</span><br><span class="line">git config --global alias.c checkout</span><br><span class="line">git config --global alias.d diff</span><br><span class="line">git config --global alias.dc &quot;diff --cached&quot;</span><br><span class="line">git config --global alias.dw &quot;diff --word-diff&quot;</span><br><span class="line">git config --global alias.l &quot;log --all --graph --pretty=format:&apos;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&apos; --abbrev-commit --date=relative&quot;</span><br><span class="line">git config --global alias.s status -sb</span><br><span class="line">git config --global alias.reset-permission &apos;!git diff -p -R --no-color | grep -E &quot;^(diff|(old|new) mode)&quot; --color=never | git apply&apos;</span><br></pre></td></tr></table></figure><h3 id="正确使用-gitignore"><a href="#正确使用-gitignore" class="headerlink" title="正确使用.gitignore"></a>正确使用.gitignore</h3><ul><li>项目中通常有些文件是不用提交到版本管理的，可以在.gitignore中配置忽略无需提交的文件，例如：<ul><li>编辑器、IDE的状态文件或临时文件</li><li>编译或构建生成的文件</li><li>第三方依赖文件，通常使用对应的包管理器</li></ul></li><li>推荐一些<a href="https://github.com/github/gitignore" rel="external nofollow noopener noreferrer" target="_blank">常用模板</a></li></ul><h3 id="Git撤销改动"><a href="#Git撤销改动" class="headerlink" title="Git撤销改动"></a>Git撤销改动</h3><blockquote><p>理解 checkout、reset、revert（撤销改动）</p></blockquote><!-- markdownlint-disable no-inline-html - Inline --><ul><li>未缓存(uncached): git checkout <paths></paths></li><li>已缓存(cached): git reset <tree-ish> – <paths></paths></tree-ish></li><li>已提交(committed):<ul><li>git reset <tree-ish> – <paths>; git checkout <paths></paths></paths></tree-ish></li><li>git reset <commit> –hard</commit></li><li>git revert <commit>  // 会增加一个删除的提交记录</commit></li></ul></li></ul><h3 id="Git更新、合并"><a href="#Git更新、合并" class="headerlink" title="Git更新、合并"></a>Git更新、合并</h3><blockquote><p>理解 fetch、pull、merge、rebase</p></blockquote><ul><li>fetch：从 remote（一般是 GitHub 等服务器）下载 object、ref 到 git directory。</li><li>pull：相当于fetch + merge。</li><li>pull –rebase：相当于fetch + rebase， 可以简写成<code>pull -r</code></li><li>merge：会产生一个额外 commit，这个 commit 有两个父 commit。</li><li>rebase（变基）：以指定 branch（一般是刚刚 fetch 过的 remote branch）为基础重放当前 branch 的新 commit，不会产生额外 commit，一般用于单人独立开发时与主分支同步，另外给开源项目发 PR 一般也要用 rebase 以方便合并。</li></ul><h3 id="Git项目流程"><a href="#Git项目流程" class="headerlink" title="Git项目流程"></a>Git项目流程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"># 生成 ssh 公私钥</span><br><span class="line">ssh-keygen</span><br><span class="line"># 复制公钥到SSh配置中，以gitee为例: https://gitee.com/profile/sshkeys</span><br><span class="line">cat ~/.ssh/id_rsa.pub</span><br><span class="line"># 克隆需要的项目，以自己的 blog 项目为例</span><br><span class="line">git clone git@gitee.com:liucm-it/liucm-it.git</span><br><span class="line"># 查看当前 branch，默认 branch 一般是 develop，</span><br><span class="line">git branch</span><br><span class="line"># 从 develop branch 切出功能或 bug branch</span><br><span class="line">git checkout -b feat-xxx</span><br><span class="line"># 提交 commit</span><br><span class="line">git add xxx</span><br><span class="line">git commit</span><br><span class="line"># push branch 到 GitLab</span><br><span class="line">git push --set-upstream origin feat-xxx</span><br><span class="line"># 可选：同步 develop branch 最新代码</span><br><span class="line">git stash</span><br><span class="line">git fetch</span><br><span class="line">git rebase origin/develop</span><br><span class="line">git stash pop</span><br><span class="line"># 可选：根据 code review 评论修改 commit，push 修改后的 commit 到 GitLab</span><br><span class="line">git add xxx</span><br><span class="line">git commit --amend</span><br><span class="line">git push -f</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Maven的scope都有什么区别？</title>
       <link href="/posts/44361/"/>
       <url>/posts/44361/</url>
@@ -590,31 +721,6 @@
     
     
     <entry>
-      <title>Docker安装后报Cannot connect to the docker daemon at ...</title>
-      <link href="/posts/61412/"/>
-      <url>/posts/61412/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Docker安装后报错：Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?</p><a id="more"></a><h3 id="解决方式执行以下命令"><a href="#解决方式执行以下命令" class="headerlink" title="解决方式执行以下命令"></a>解决方式执行以下命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">sudo service docker restart</span><br><span class="line">sudo service docker status (should see active (running))</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> Docker </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Docker </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>About Hexo</title>
       <link href="/posts/15470/"/>
       <url>/posts/15470/</url>
@@ -632,6 +738,31 @@
         <tags>
             
             <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Docker安装后报Cannot connect to the docker daemon at ...</title>
+      <link href="/posts/61412/"/>
+      <url>/posts/61412/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Docker安装后报错：Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?</p><a id="more"></a><h3 id="解决方式执行以下命令"><a href="#解决方式执行以下命令" class="headerlink" title="解决方式执行以下命令"></a>解决方式执行以下命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">sudo service docker restart</span><br><span class="line">sudo service docker status (should see active (running))</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Docker </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Docker </tag>
             
         </tags>
       
